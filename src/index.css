@@ -1,0 +1,12 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+
+
+
+
+
+.work-sans {
+    font-family: "Poppins", sans-serif;
+
+}
