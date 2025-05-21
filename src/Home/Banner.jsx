@@ -1,38 +1,65 @@
-import React from 'react';
+import { Link } from 'react-router'; // Fixed the wrong import
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+import { Keyboard, Pagination, Navigation } from 'swiper/modules';
 
 const Banner = () => {
     return (
-        <>
-            <section className="bg-white  font-display dark:bg-gray-900 min-h-screen flex items-start justify-start">
-                <div className="max-w-screen-xl w-full ml-4 sm:ml-6 md:ml-8 lg:ml-12 px-4 sm:px-6 md:px-8 lg:px-16 py-16 sm:py-24 lg:py-32">
-                    <div className="max-w-prose text-left">
-                        <h1 className="font-bold text-3xl sm:text-4xl md:text-5xl text-gray-900 dark:text-white">
-                            Empower Your <span className="text-purple-500">Projects</span> with Top Freelancers
-                        </h1>
+        <section className="bg-white font-display dark:bg-gray-900 min-h-screen flex flex-col md:flex-row items-start justify-start">
+            {/* Text Section */}
+            <div className="w-full md:w-[50%] ml-4 sm:ml-6 md:ml-8 lg:ml-12 px-4 sm:px-6 md:px-8 lg:px-16 py-16 sm:py-24 lg:py-32">
+                <div className="max-w-prose text-left">
+                    <h1 className="font-bold text-3xl sm:text-4xl md:text-5xl text-gray-900 dark:text-white">
+                        Empower Your <span className="text-purple-500">Projects</span> with Top Freelancers
+                    </h1>
 
-                        <p className="mt-4 text-base sm:text-lg md:text- text-gray-700 dark:text-gray-200">
-                            Inspired by the best of Fiverr and Upwork, our platform connects you to skilled professionals worldwide. Post your project, collaborate seamlessly, and achieve outstanding results.
-                        </p>
+                    <p className="mt-4 text-base sm:text-lg text-gray-700 dark:text-gray-200">
+                        Inspired by the best of Fiverr and Upwork, our platform connects you to skilled professionals worldwide. Post your project, collaborate seamlessly, and achieve outstanding results.
+                    </p>
 
-                        <div className="mt-6 flex flex-col sm:flex-row gap-4">
-                            <a
-                                href="#"
-                                className="inline-block rounded border border-purple-500 bg-purple-500 px-6 py-3 font-medium text-white shadow-sm transition-colors hover:bg-purple-700"
-                            >
-                                Post a Project
-                            </a>
+                    <div className="mt-6 flex flex-col sm:flex-row gap-4">
+                        <Link
+                            to="/add-task"
+                            className="inline-block rounded border border-purple-500 bg-purple-500 px-6 py-3 font-medium text-white shadow-sm transition-colors hover:bg-purple-700"
+                        >
+                            Post a Project
+                        </Link>
 
-                            <a
-                                href="#"
-                                className="inline-block rounded border border-gray-200 px-6 py-3 font-medium text-gray-700 shadow-sm transition-colors hover:bg-gray-50 hover:text-gray-900 dark:border-gray-700 dark:text-gray-200 dark:hover:bg-gray-800 dark:hover:text-white"
-                            >
-                                Find Freelancer
-                            </a>
-                        </div>
+                        <Link
+                            to="#"
+                            className="inline-block rounded border border-gray-200 px-6 py-3 font-medium text-gray-700 shadow-sm transition-colors hover:bg-gray-50 hover:text-gray-900 dark:border-gray-700 dark:text-gray-200 dark:hover:bg-gray-800 dark:hover:text-white"
+                        >
+                            Find Freelancer
+                        </Link>
                     </div>
                 </div>
-            </section>
-        </>
+            </div>
+
+            {/* Slider Section */}
+            <div className="w-full md:w-[50%] px-4 pt-6 md:pt-12 md:pr-12">
+                <Swiper
+                    slidesPerView={1}
+                    spaceBetween={30}
+                    keyboard={{ enabled: true }}
+                    pagination={{ clickable: true }}
+                    navigation={true}
+                    modules={[Keyboard, Pagination, Navigation]}
+                    className="rounded-2xl"
+                >
+                    {[...Array(4)].map((_, idx) => (
+                        <SwiperSlide key={idx}>
+                            <img
+                                className="w-full h-[200px] sm:h-[250px] md:h-full object-cover rounded-2xl"
+                                src="https://images.pexels.com/photos/461064/pexels-photo-461064.jpeg"
+                                alt={`Slide ${idx + 1}`}
+                            />
+                        </SwiperSlide>
+                    ))}
+                </Swiper>
+            </div>
+        </section>
     );
 };
 

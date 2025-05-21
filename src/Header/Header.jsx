@@ -101,9 +101,9 @@ const Header = () => {
                     >
                         My Posted Tasks
                     </NavLink>
-                    {user && (
+                    {/* {user && (
                         <span className="font-semibold hover:text-purple-500 transition">{user.email}</span>
-                    )}
+                    )} */}
                 </div>
 
 

@@ -2,6 +2,7 @@ import React from 'react';
 import Home from '../Home/Home';
 import { Outlet } from 'react-router';
 import Taske from '../Tasks/Taske';
+import Fooder from '../Fooder/Fooder';
 
 const MainLaout = () => {
     return (
@@ -9,6 +10,7 @@ const MainLaout = () => {
             <Home></Home>
 
             <Outlet></Outlet>
+            <Fooder></Fooder>
         </div>
     );
 };
