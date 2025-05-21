@@ -7,7 +7,7 @@ import Banner from "./Banner";
 const Appp = () => {
   return (
     <>
-      <Banner></Banner>
+  
     </>
   );
 };

@@ -60,7 +60,7 @@ const Login = () => {
 
 
     return (
-        <div className="min-h-screen flex items-center justify-center bg-gray-100 dark:bg-gray-900">
+        <div className="min-h-screen flex items-center font-display justify-center bg-gray-100 dark:bg-gray-900">
             <div className="w-full max-w-md p-8 space-y-6  rounded-lg shadow-lg bg-black">
                 <div className="text-center">
                     <a href="/">

@@ -22,7 +22,7 @@ const Header = () => {
     };
 
     return (
-        <nav className="shadow-sm bg-neutral text-neutral-content font-work-sans px-4 py-3">
+        <nav className="shadow-sm bg-neutral text-neutral-content font-display px-4 py-3">
             {/* Mobile Navbar */}
             <div className="flex items-center justify-between lg:hidden">
                 <div className="dropdown">
@@ -33,11 +33,11 @@ const Header = () => {
                                 d="M4 6h16M4 12h8m-8 6h16" />
                         </svg>
                     </button>
-                    <ul tabIndex={0} className="menu menu-compact  dropdown-content mt-2 p-2 shadow bg-base-100 rounded-box w-48 text-black">
+                    <ul tabIndex={0} className="menu menu-compact  dropdown-content mt-2 p-2 shadow bg-base-100 rounded-box w-48">
                         <li><Link to="/">Home</Link></li>
                         <li><Link to="/browse">Browse Tasks</Link></li>
                         <li><Link to="/add-task">Add Task</Link></li>
-                        <li><Link to="/my-posts">My Posted Tasks</Link></li>
+                        <li><Link to="/main-tasks">My Posted Tasks</Link></li>
                     </ul>
                 </div>
 
@@ -94,7 +94,7 @@ const Header = () => {
                         Add Task
                     </NavLink>
                     <NavLink
-                        to="/my-posts"
+                        to="/main-tasks"
                         className={({ isActive }) =>
                             `transition hover:text-purple-500 ${isActive ? 'border-b-2 border-purple-500 pb-1' : ''}`
                         }

@@ -1,8 +1,15 @@
 @import "tailwindcss";
 @plugin "daisyui";
 
+@theme {
+    --font-display: "Oswald", "sans-serif";
+}
 
-
+@theme {
+    --font-display: "Oswald", "sans-serif";
+    --font-display--font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    --font-display--font-variation-settings: "opsz" 32;
+}
 
 
 

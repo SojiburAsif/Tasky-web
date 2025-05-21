@@ -2,38 +2,37 @@ import React from 'react';
 
 const Banner = () => {
     return (
-        <section className="bg-gradient-to-r from-black via-[rgba(255,255,255,0.05)] via-5% via-purple-700 via-30% to-black to-60% lg:grid lg:h-screen lg:place-content-center">
-            <div className="mx-auto w-screen max-w-screen-xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8 lg:py-32 text-white">
-                <div className="max-w-prose">
-                    <h1 className="text-4xl font-bold sm:text-5xl">
-                        Understand user flow and
-                        <strong className="text-purple-300"> increase </strong>
-                        conversions
-                    </h1>
+        <>
+            <section className="bg-white  font-display dark:bg-gray-900 min-h-screen flex items-start justify-start">
+                <div className="max-w-screen-xl w-full ml-4 sm:ml-6 md:ml-8 lg:ml-12 px-4 sm:px-6 md:px-8 lg:px-16 py-16 sm:py-24 lg:py-32">
+                    <div className="max-w-prose text-left">
+                        <h1 className="font-bold text-3xl sm:text-4xl md:text-5xl text-gray-900 dark:text-white">
+                            Empower Your <span className="text-purple-500">Projects</span> with Top Freelancers
+                        </h1>
 
-                    <p className="mt-4 text-base sm:text-lg/relaxed">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque, nisi. Natus, provident
-                        accusamus impedit minima harum corporis iusto.
-                    </p>
+                        <p className="mt-4 text-base sm:text-lg md:text- text-gray-700 dark:text-gray-200">
+                            Inspired by the best of Fiverr and Upwork, our platform connects you to skilled professionals worldwide. Post your project, collaborate seamlessly, and achieve outstanding results.
+                        </p>
 
-                    <div className="mt-6 flex gap-4">
-                        <a
-                            className="inline-block rounded border border-purple-300 bg-purple-300 px-5 py-3 font-medium text-black shadow-sm transition-colors hover:bg-purple-400"
-                            href="#"
-                        >
-                            Get Started
-                        </a>
+                        <div className="mt-6 flex flex-col sm:flex-row gap-4">
+                            <a
+                                href="#"
+                                className="inline-block rounded border border-purple-500 bg-purple-500 px-6 py-3 font-medium text-white shadow-sm transition-colors hover:bg-purple-700"
+                            >
+                                Post a Project
+                            </a>
 
-                        <a
-                            className="inline-block rounded border border-white px-5 py-3 font-medium text-white shadow-sm transition-colors hover:bg-white hover:text-purple-800"
-                            href="#"
-                        >
-                            Learn More
-                        </a>
+                            <a
+                                href="#"
+                                className="inline-block rounded border border-gray-200 px-6 py-3 font-medium text-gray-700 shadow-sm transition-colors hover:bg-gray-50 hover:text-gray-900 dark:border-gray-700 dark:text-gray-200 dark:hover:bg-gray-800 dark:hover:text-white"
+                            >
+                                Find Freelancer
+                            </a>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
+        </>
     );
 };
 
