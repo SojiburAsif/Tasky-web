@@ -12,12 +12,12 @@ const AddTask = () => {
         const formData = new FormData(form);
         const taskData = Object.fromEntries(formData.entries());
 
-        // Optional: add createdAt timestamp
+      
         taskData.createdAt = new Date().toISOString();
 
         console.log('Submitting task:', taskData);
 
-        fetch('http://localhost:3000/working', {
+        fetch('https://backend-zeta-ochre-92.vercel.app/working', {
             method: "POST",
             headers: {
                 "content-type": "application/json"
@@ -31,7 +31,7 @@ const AddTask = () => {
                         title: "Task Added Successfully!",
                         icon: "success"
                     });
-                    form.reset(); // Clear the form
+                    form.reset(); 
                 }
             });
     };
@@ -39,7 +39,7 @@ const AddTask = () => {
     return (
         <section className="bg-black min-h-screen">
             <Header />
-            <div className="flex justify-center items-start mt-8 px-4">
+            <div className="flex justify-center font-display items-start mt-8 px-4">
                 <form
                     onSubmit={handleAddTask}
                     className="bg-gradient-to-r from-[#040104] to-[#100415] border border-purple-900 rounded-2xl p-10 w-full max-w-screen-lg space-y-6 cursor-default"
@@ -47,7 +47,7 @@ const AddTask = () => {
                     <h2 className="text-3xl font-extrabold text-white text-center">Add Task Details</h2>
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                        {/* Task Title */}
+                      
                         <fieldset className="flex flex-col">
                             <label htmlFor="title" className="mb-2 text-purple-500 font-semibold">Task Title</label>
                             <input
@@ -60,7 +60,7 @@ const AddTask = () => {
                             />
                         </fieldset>
 
-                        {/* Category */}
+                     
                         <fieldset className="flex flex-col">
                             <label htmlFor="category" className="mb-2 text-purple-500 font-semibold">Category</label>
                             <select
@@ -76,7 +76,7 @@ const AddTask = () => {
                             </select>
                         </fieldset>
 
-                        {/* Description */}
+          
                         <fieldset className="flex flex-col sm:col-span-2">
                             <label htmlFor="description" className="mb-2 text-purple-500 font-semibold">Description</label>
                             <textarea
@@ -89,7 +89,7 @@ const AddTask = () => {
                             ></textarea>
                         </fieldset>
 
-                        {/* Deadline */}
+                 
                         <fieldset className="flex flex-col">
                             <label htmlFor="deadline" className="mb-2 text-purple-500 font-semibold">Deadline</label>
                             <input
@@ -101,7 +101,7 @@ const AddTask = () => {
                             />
                         </fieldset>
 
-                        {/* Budget */}
+        
                         <fieldset className="flex flex-col">
                             <label htmlFor="budget" className="mb-2 text-purple-500 font-semibold">Budget</label>
                             <input
@@ -114,7 +114,7 @@ const AddTask = () => {
                             />
                         </fieldset>
 
-                        {/* Email */}
+        
                         <fieldset className="flex flex-col">
                             <label htmlFor="email" className="mb-2 text-purple-500 font-semibold">User Email</label>
                             <input
@@ -127,7 +127,6 @@ const AddTask = () => {
                             />
                         </fieldset>
 
-                        {/* Username */}
                         <fieldset className="flex flex-col">
                             <label htmlFor="username" className="mb-2 text-purple-500 font-semibold">User Name</label>
                             <input
@@ -141,7 +140,7 @@ const AddTask = () => {
                         </fieldset>
                     </div>
 
-                    {/* Submit Button */}
+           
                     <button
                         type="submit"
                         className="w-full py-4 bg-white text-purple-900 font-bold rounded-lg shadow-md transition hover:bg-purple-900 hover:text-white"

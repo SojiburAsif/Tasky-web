@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { FaTrash, FaEdit, FaGavel } from 'react-icons/fa';
-import { Link } from 'react-router'; 
+import { Link } from 'react-router';
 import Swal from 'sweetalert2';
-import Loading from '../Loding/Loding';
+import Header from '../Header/Header';
 
-const FeaturedTasks = () => {
+const HomeTasks = () => {
     const [tasks, setTasks] = useState([]);
-    const [loading, setLoading] = useState(true); // ✅ loading state
 
     useEffect(() => {
         fetch('https://backend-zeta-ochre-92.vercel.app/working')
@@ -14,9 +13,7 @@ const FeaturedTasks = () => {
             .then(data => {
                 const sorted = data.sort((a, b) => new Date(a.deadline) - new Date(b.deadline));
                 setTasks(sorted);
-                setLoading(false); // 
-            })
-            .catch(() => setLoading(false)); // 
+            });
     }, []);
 
     const handleDelete = (_id) => {
@@ -62,16 +59,18 @@ const FeaturedTasks = () => {
         return diff;
     };
 
-
-    if (loading) return <Loading></Loading>;
-
     return (
-        <div className='bg-black min-h-screen font-display '>
+        <div className='   bg-black
+    min-h-screen
+    font-display
+    hover:animate-purpleGlow
+    transition-colors duration-500 ease-in-out '>
+
             <section className="w-full px-8 mx-auto max-w-7xl py-12">
                 <h2 className="text-3xl text-center font-bold text-purple-500 mb-8">Featured Tasks</h2>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {tasks.map(task => {
+                    {tasks.slice(0, 6).map(task => {
                         const days = daysUntil(task.deadline);
                         const urgent = days <= 15 && days >= 0;
                         return (
@@ -80,14 +79,14 @@ const FeaturedTasks = () => {
                                 className={`rounded-xl bg-gray-900 text-white p-6 shadow ring-2 transition-all duration-300 flex flex-col justify-between
                                     ${urgent
                                         ? 'ring-red-500 hover:ring-red-300'
-                                        : 'ring-gray-800 hover:ring-purple-200  hover:shadow-purple-800'
+                                        : 'ring-gray-800 hover:ring-purple-200 hover:shadow-purple-800'
                                     }`}
                             >
                                 <div>
                                     <div className="flex justify-between items-start mb-4">
                                         <h3 className="text-xl font-semibold text-purple-400">{task.title}</h3>
                                         <div className="flex gap-3 items-center">
-                                            <FaGavel title="View Bids" className="text-yellow-400 hover:text-yellow-500 cursor-pointer" size={20} />
+                                            <FaGavel title="View Bids" onClick={() => { }} className="text-yellow-400 hover:text-yellow-500 cursor-pointer" size={20} />
                                             <Link to={`/update/${task._id}`}><FaEdit className="text-blue-400 hover:text-blue-600 cursor-pointer" size={20} /></Link>
                                             <FaTrash onClick={() => handleDelete(task._id)} className="text-red-400 hover:text-red-600 cursor-pointer" size={20} />
                                         </div>
@@ -111,4 +110,4 @@ const FeaturedTasks = () => {
     );
 };
 
-export default FeaturedTasks;
+export default HomeTasks;

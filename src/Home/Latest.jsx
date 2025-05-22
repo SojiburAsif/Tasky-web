@@ -58,7 +58,7 @@ const projects = [
 
 const Latest = () => {
     return (
-        <div className="bg-black min-h-screen py-9 font-sans">
+        <div className="bg-black min-h-screen py-9   font-display ">
             <div className="px-6 py-10 max-w-7xl mx-auto bg-gray-800 rounded-2xl text-left">
                 <div className="mb-8">
                     <h1 className="text-4xl text-center font-semibold text-white mb-2">Latest Projects</h1>

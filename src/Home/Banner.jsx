@@ -1,14 +1,22 @@
-import { Link } from 'react-router'; // Fixed the wrong import
+import { Link } from 'react-router';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import { Keyboard, Pagination, Navigation } from 'swiper/modules';
 
+const images = [
+    "https://images.pexels.com/photos/461064/pexels-photo-461064.jpeg",
+    "https://i.postimg.cc/YCH4GvTd/jeshoots-com-p8ka-VRe4ed-M-unsplash-1.jpg",
+    
+  
+    
+];
+
 const Banner = () => {
     return (
         <section className="bg-white font-display dark:bg-gray-900 min-h-screen flex flex-col md:flex-row items-start justify-start">
-            {/* Text Section */}
+        
             <div className="w-full md:w-[50%] ml-4 sm:ml-6 md:ml-8 lg:ml-12 px-4 sm:px-6 md:px-8 lg:px-16 py-16 sm:py-24 lg:py-32">
                 <div className="max-w-prose text-left">
                     <h1 className="font-bold text-3xl sm:text-4xl md:text-5xl text-gray-900 dark:text-white">
@@ -37,7 +45,7 @@ const Banner = () => {
                 </div>
             </div>
 
-            {/* Slider Section */}
+       
             <div className="w-full md:w-[50%] px-4 pt-6 md:pt-12 md:pr-12">
                 <Swiper
                     slidesPerView={1}
@@ -48,11 +56,11 @@ const Banner = () => {
                     modules={[Keyboard, Pagination, Navigation]}
                     className="rounded-2xl"
                 >
-                    {[...Array(4)].map((_, idx) => (
+                    {images.map((src, idx) => (
                         <SwiperSlide key={idx}>
                             <img
                                 className="w-full h-[200px] sm:h-[250px] md:h-full object-cover rounded-2xl"
-                                src="https://images.pexels.com/photos/461064/pexels-photo-461064.jpeg"
+                                src={src}
                                 alt={`Slide ${idx + 1}`}
                             />
                         </SwiperSlide>

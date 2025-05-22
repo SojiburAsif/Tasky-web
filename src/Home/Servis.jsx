@@ -3,9 +3,9 @@ import { SiAltiumdesigner } from 'react-icons/si';
 
 const Servis = () => {
     return (
-        <div className="bg-white font-display px-6  dark:bg-gray-900 py-12">
+        <div className="bg-white font-display px-6   dark:bg-black py-12">
             <div className="max-w-7xl mx-auto">
-                <h2 className="text-4xl font-bold text-gray-800 dark:text-white text-left">
+                <h2 className="text-4xl font-bold text-purple-500 dark:text-purple-500 text-left">
                     Our Services
                 </h2>
                 <p className="text-gray-600 dark:text-gray-300 mt-1">

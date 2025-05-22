@@ -1,15 +1,17 @@
 import React, { useContext } from 'react';
-import { Link, NavLink } from 'react-router'; // ✅ Fix: Use react-router-dom
+import { Link, useLocation, useNavigate } from 'react-router';
 import { AuthContext } from '../Contexts/AuthContext';
 import toast from 'react-hot-toast';
 
 const Header = () => {
     const { user, logout } = useContext(AuthContext);
+    const navigate = useNavigate();
+    const location = useLocation();
 
     const handleLogout = () => {
         logout()
             .then(() => {
-                toast.success('Account created successfully!', {
+                toast.success('Logout successful!', {
                     style: {
                         fontSize: '18px',
                         fontWeight: '600',
@@ -21,9 +23,19 @@ const Header = () => {
             .catch(console.error);
     };
 
+    const handleBrowseClick = () => {
+        if (user?.email) {
+            navigate('/main-tasks');
+        } else {
+            navigate('/login', { state: { from: location.pathname } });
+        }
+    };
+
+    const isActive = (path) => location.pathname === path ? 'border-b-2 border-purple-500 pb-1' : '';
+
     return (
         <nav className="shadow-sm bg-neutral text-neutral-content font-display px-4 py-3">
-            {/* Mobile Navbar */}
+
             <div className="flex items-center justify-between lg:hidden">
                 <div className="dropdown">
                     <button tabIndex={0} className="btn btn-ghost p-2" aria-label="Toggle menu">
@@ -35,9 +47,9 @@ const Header = () => {
                     </button>
                     <ul tabIndex={0} className="menu menu-compact  dropdown-content mt-2 p-2 shadow bg-base-100 rounded-box w-48">
                         <li><Link to="/">Home</Link></li>
-                        <li><Link to="/browse">Browse Tasks</Link></li>
+                        <li><button onClick={handleBrowseClick}>Browse Tasks</button></li>
                         <li><Link to="/add-task">Add Task</Link></li>
-                        <li><Link to="/main-tasks">My Posted Tasks</Link></li>
+                        <li><Link to="/my-tasks">My Posted Tasks</Link></li>
                     </ul>
                 </div>
 
@@ -69,43 +81,33 @@ const Header = () => {
                 </Link>
 
                 <div className="flex space-x-6">
-                    <NavLink
+                    <Link
                         to="/"
-                        className={({ isActive }) =>
-                            `transition hover:text-purple-500 ${isActive ? 'border-b-2 border-purple-500 pb-1' : ''}`
-                        }
+                        className={`transition hover:text-purple-500 ${isActive('/')}`}
                     >
                         Home
-                    </NavLink>
-                    <NavLink
-                        to="/browse"
-                        className={({ isActive }) =>
-                            `transition hover:text-purple-500 ${isActive ? 'border-b-2 border-purple-500 pb-1' : ''}`
-                        }
+                    </Link>
+
+                    <button
+                        onClick={handleBrowseClick}
+                        className={`transition hover:text-purple-500 mb-1 ${isActive('/main-tasks')}`}
                     >
                         Browse Tasks
-                    </NavLink>
-                    <NavLink
+                    </button>
+
+                    <Link
                         to="/add-task"
-                        className={({ isActive }) =>
-                            `transition hover:text-purple-500 ${isActive ? 'border-b-2 border-purple-500 pb-1' : ''}`
-                        }
+                        className={`transition hover:text-purple-500 ${isActive('/add-task')}`}
                     >
                         Add Task
-                    </NavLink>
-                    <NavLink
-                        to="/main-tasks"
-                        className={({ isActive }) =>
-                            `transition hover:text-purple-500 ${isActive ? 'border-b-2 border-purple-500 pb-1' : ''}`
-                        }
+                    </Link>
+                    <Link
+                        to="/my-tasks"
+                        className={`transition hover:text-purple-500 ${isActive('/Mytasks')}`}
                     >
                         My Posted Tasks
-                    </NavLink>
-                    {/* {user && (
-                        <span className="font-semibold hover:text-purple-500 transition">{user.email}</span>
-                    )} */}
+                    </Link>
                 </div>
-
 
                 <div className="flex gap-3">
                     {user ? (

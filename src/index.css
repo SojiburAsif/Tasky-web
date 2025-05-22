@@ -17,3 +17,19 @@
     font-family: "Poppins", sans-serif;
 
 }
+
+
+
+
+
+
+.bg-gradient-split {
+  background: linear-gradient(
+    to right,
+    #000 0%,    /* black from 0% */
+    #000 80%,   /* stays black until 80% */
+    #8000ff 80%,/* purple from 80% */
+    #8000ff 100%
+  );
+  background-size: 200% 100%;
+}
