@@ -2,17 +2,18 @@ import React, { useContext } from 'react';
 import Header from '../Header/Header';
 import Swal from 'sweetalert2';
 import { AuthContext } from '../Contexts/AuthContext';
+import { useNavigate } from 'react-router';
 
 const AddTask = () => {
     const { user } = useContext(AuthContext);
-
+    const navigate = useNavigate();
     const handleAddTask = (e) => {
         e.preventDefault();
         const form = e.target;
         const formData = new FormData(form);
         const taskData = Object.fromEntries(formData.entries());
 
-      
+
         taskData.createdAt = new Date().toISOString();
 
         console.log('Submitting task:', taskData);
@@ -31,7 +32,8 @@ const AddTask = () => {
                         title: "Task Added Successfully!",
                         icon: "success"
                     });
-                    form.reset(); 
+                    form.reset();
+                    navigate('/main-tasks');
                 }
             });
     };
@@ -39,7 +41,7 @@ const AddTask = () => {
     return (
         <section className="bg-black min-h-screen">
             <Header />
-            <div className="flex justify-center font-display items-start mt-8 px-4">
+            <div className="flex justify-center poppins-font items-start mt-8 px-4">
                 <form
                     onSubmit={handleAddTask}
                     className="bg-gradient-to-r from-[#040104] to-[#100415] border border-purple-900 rounded-2xl p-10 w-full max-w-screen-lg space-y-6 cursor-default"
@@ -47,7 +49,7 @@ const AddTask = () => {
                     <h2 className="text-3xl font-extrabold text-white text-center">Add Task Details</h2>
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                      
+
                         <fieldset className="flex flex-col">
                             <label htmlFor="title" className="mb-2 text-purple-500 font-semibold">Task Title</label>
                             <input
@@ -60,7 +62,7 @@ const AddTask = () => {
                             />
                         </fieldset>
 
-                     
+
                         <fieldset className="flex flex-col">
                             <label htmlFor="category" className="mb-2 text-purple-500 font-semibold">Category</label>
                             <select
@@ -76,7 +78,7 @@ const AddTask = () => {
                             </select>
                         </fieldset>
 
-          
+
                         <fieldset className="flex flex-col sm:col-span-2">
                             <label htmlFor="description" className="mb-2 text-purple-500 font-semibold">Description</label>
                             <textarea
@@ -89,7 +91,7 @@ const AddTask = () => {
                             ></textarea>
                         </fieldset>
 
-                 
+
                         <fieldset className="flex flex-col">
                             <label htmlFor="deadline" className="mb-2 text-purple-500 font-semibold">Deadline</label>
                             <input
@@ -101,7 +103,7 @@ const AddTask = () => {
                             />
                         </fieldset>
 
-        
+
                         <fieldset className="flex flex-col">
                             <label htmlFor="budget" className="mb-2 text-purple-500 font-semibold">Budget</label>
                             <input
@@ -114,7 +116,7 @@ const AddTask = () => {
                             />
                         </fieldset>
 
-        
+
                         <fieldset className="flex flex-col">
                             <label htmlFor="email" className="mb-2 text-purple-500 font-semibold">User Email</label>
                             <input
@@ -140,7 +142,7 @@ const AddTask = () => {
                         </fieldset>
                     </div>
 
-           
+
                     <button
                         type="submit"
                         className="w-full py-4 bg-white text-purple-900 font-bold rounded-lg shadow-md transition hover:bg-purple-900 hover:text-white"

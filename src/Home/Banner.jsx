@@ -8,16 +8,16 @@ import { Keyboard, Pagination, Navigation } from 'swiper/modules';
 const images = [
     "https://images.pexels.com/photos/461064/pexels-photo-461064.jpeg",
     "https://i.postimg.cc/YCH4GvTd/jeshoots-com-p8ka-VRe4ed-M-unsplash-1.jpg",
-    
-  
-    
+
+
+
 ];
 
 const Banner = () => {
     return (
-        <section className="bg-white font-display dark:bg-gray-900 min-h-screen flex flex-col md:flex-row items-start justify-start">
-        
-            <div className="w-full md:w-[50%] ml-4 sm:ml-6 md:ml-8 lg:ml-12 px-4 sm:px-6 md:px-8 lg:px-16 py-16 sm:py-24 lg:py-32">
+        <section className="bg-white  dark:bg-gray-900 min-h-screen flex flex-col   poppins-font  md:flex-row items-start justify-start">
+
+            <div className="w-full md:w-1/2 px-4 sm:px-6 md:px-8 lg:px-16 py-16 sm:py-24 lg:py-32 mx-auto">
                 <div className="max-w-prose text-left">
                     <h1 className="font-bold text-3xl sm:text-4xl md:text-5xl text-gray-900 dark:text-white">
                         Empower Your <span className="text-purple-500">Projects</span> with Top Freelancers
@@ -45,7 +45,8 @@ const Banner = () => {
                 </div>
             </div>
 
-       
+
+
             <div className="w-full md:w-[50%] px-4 pt-6 md:pt-12 md:pr-12">
                 <Swiper
                     slidesPerView={1}

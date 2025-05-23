@@ -34,7 +34,7 @@ const Header = () => {
     const isActive = (path) => location.pathname === path ? 'border-b-2 border-purple-500 pb-1' : '';
 
     return (
-        <nav className="shadow-sm bg-neutral text-neutral-content font-display px-4 py-3">
+        <nav className="shadow-sm bg-neutral text-neutral-content  grotesk-font  px-4 py-3">
 
             <div className="flex items-center justify-between lg:hidden">
                 <div className="dropdown">
@@ -110,6 +110,7 @@ const Header = () => {
                 </div>
 
                 <div className="flex gap-3">
+                    
                     {user ? (
                         <button
                             onClick={handleLogout}

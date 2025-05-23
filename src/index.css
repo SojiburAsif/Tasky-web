@@ -1,9 +1,6 @@
 @import "tailwindcss";
 @plugin "daisyui";
 
-@theme {
-    --font-display: "Oswald", "sans-serif";
-}
 
 @theme {
     --font-display: "Oswald", "sans-serif";
@@ -12,24 +9,18 @@
 }
 
 
-
-.work-sans {
+.poppins-font {
     font-family: "Poppins", sans-serif;
-
 }
 
+.roboto-font {
+    font-family: "Roboto", sans-serif;
+}
 
+.error-font {
+    font-family: "Fira Sans", sans-serif;
+}
 
-
-
-
-.bg-gradient-split {
-  background: linear-gradient(
-    to right,
-    #000 0%,    /* black from 0% */
-    #000 80%,   /* stays black until 80% */
-    #8000ff 80%,/* purple from 80% */
-    #8000ff 100%
-  );
-  background-size: 200% 100%;
+.grotesk-font {
+    font-family: "Space Grotesk", sans-serif;
 }

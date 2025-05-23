@@ -1,10 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { FaTrash, FaEdit, FaGavel } from 'react-icons/fa';
 import { Link } from 'react-router';
 import Swal from 'sweetalert2';
 import Header from '../Header/Header';
+import { AuthContext } from '../Contexts/AuthContext';
+import Loading from '../Loding/Loding';
 
 const HomeTasks = () => {
+    const { loading } = useContext(AuthContext);
+
+
+
     const [tasks, setTasks] = useState([]);
 
     useEffect(() => {
@@ -59,10 +65,15 @@ const HomeTasks = () => {
         return diff;
     };
 
+
+
+    if (loading) {
+        return <Loading></Loading>;
+    }
     return (
         <div className='   bg-black
     min-h-screen
-    font-display
+poppins-font
     hover:animate-purpleGlow
     transition-colors duration-500 ease-in-out '>
 
@@ -86,7 +97,7 @@ const HomeTasks = () => {
                                     <div className="flex justify-between items-start mb-4">
                                         <h3 className="text-xl font-semibold text-purple-400">{task.title}</h3>
                                         <div className="flex gap-3 items-center">
-                                            <FaGavel title="View Bids" onClick={() => { }} className="text-yellow-400 hover:text-yellow-500 cursor-pointer" size={20} />
+
                                             <Link to={`/update/${task._id}`}><FaEdit className="text-blue-400 hover:text-blue-600 cursor-pointer" size={20} /></Link>
                                             <FaTrash onClick={() => handleDelete(task._id)} className="text-red-400 hover:text-red-600 cursor-pointer" size={20} />
                                         </div>

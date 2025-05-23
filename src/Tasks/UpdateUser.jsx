@@ -2,11 +2,13 @@ import React, { useContext } from 'react';
 import { AuthContext } from '../Contexts/AuthContext';
 import { useLoaderData, useNavigate } from 'react-router';
 import Swal from 'sweetalert2';
+import { Tooltip } from 'react-tooltip';
+import 'react-tooltip/dist/react-tooltip.css';
 
 const UpdateUser = () => {
     const { user } = useContext(AuthContext);
     const { _id, budget, deadline, description, category, title } = useLoaderData();
-    const navigate = useNavigate(); 
+    const navigate = useNavigate();
 
     const handlUpdateTask = (e) => {
         e.preventDefault();
@@ -32,7 +34,6 @@ const UpdateUser = () => {
                         showConfirmButton: false,
                     });
 
-                 
                     setTimeout(() => {
                         navigate('/main-tasks');
                     }, 2000);
@@ -41,7 +42,7 @@ const UpdateUser = () => {
     };
 
     return (
-        <div className="flex justify-center items-start mt-8 font-display px-4">
+        <div className="flex justify-center items-start mt-8 poppins-font px-4">
             <form
                 onSubmit={handlUpdateTask}
                 className="bg-gradient-to-r from-[#040104] to-[#100415] border border-purple-900 rounded-2xl p-10 w-full max-w-screen-lg space-y-6 cursor-default"
@@ -50,7 +51,9 @@ const UpdateUser = () => {
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <fieldset className="flex flex-col">
-                        <label htmlFor="title" className="mb-2 text-purple-500 font-semibold">Task Title</label>
+                        <label htmlFor="title" className="mb-2 text-purple-500 font-semibold">
+                            Task Title
+                        </label>
                         <input
                             id="title"
                             type="text"
@@ -58,18 +61,24 @@ const UpdateUser = () => {
                             defaultValue={title}
                             required
                             placeholder="Enter Task Title"
-                            className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-gray-100 text-gray-800"
+                            className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-gray-100 text-gray-800 cursor-help"
+                            data-tooltip-id="tooltip-title"
+                            data-tooltip-content="Enter the title of the task"
                         />
                     </fieldset>
 
                     <fieldset className="flex flex-col">
-                        <label htmlFor="category" className="mb-2 text-purple-500 font-semibold">Category</label>
+                        <label htmlFor="category" className="mb-2 text-purple-500 font-semibold">
+                            Category
+                        </label>
                         <select
                             id="category"
                             name="category"
                             defaultValue={category}
                             required
-                            className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-gray-100 text-gray-800"
+                            className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-gray-100 text-gray-800 cursor-help"
+                            data-tooltip-id="tooltip-category"
+                            data-tooltip-content="Select the task category"
                         >
                             <option value="Web Development">Web Development</option>
                             <option value="Design">Design</option>
@@ -79,7 +88,9 @@ const UpdateUser = () => {
                     </fieldset>
 
                     <fieldset className="flex flex-col sm:col-span-2">
-                        <label htmlFor="description" className="mb-2 text-purple-500 font-semibold">Description</label>
+                        <label htmlFor="description" className="mb-2 text-purple-500 font-semibold">
+                            Description
+                        </label>
                         <textarea
                             id="description"
                             name="description"
@@ -92,19 +103,25 @@ const UpdateUser = () => {
                     </fieldset>
 
                     <fieldset className="flex flex-col">
-                        <label htmlFor="deadline" className="mb-2 text-purple-500 font-semibold">Deadline</label>
+                        <label htmlFor="deadline" className="mb-2 text-purple-500 font-semibold">
+                            Deadline
+                        </label>
                         <input
                             id="deadline"
                             type="date"
                             name="deadline"
                             defaultValue={deadline}
                             required
-                            className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-gray-100 text-gray-800"
+                            className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-gray-100 text-gray-800 cursor-help"
+                            data-tooltip-id="tooltip-deadline"
+                            data-tooltip-content="Choose the deadline date"
                         />
                     </fieldset>
 
                     <fieldset className="flex flex-col">
-                        <label htmlFor="budget" className="mb-2 text-purple-500 font-semibold">Budget</label>
+                        <label htmlFor="budget" className="mb-2 text-purple-500 font-semibold">
+                            Budget
+                        </label>
                         <input
                             id="budget"
                             type="number"
@@ -112,12 +129,16 @@ const UpdateUser = () => {
                             defaultValue={budget}
                             required
                             placeholder="Enter Budget"
-                            className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-gray-100 text-gray-800"
+                            className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-gray-100 text-gray-800 cursor-help"
+                            data-tooltip-id="tooltip-budget"
+                            data-tooltip-content="Set the budget for the task"
                         />
                     </fieldset>
 
                     <fieldset className="flex flex-col">
-                        <label htmlFor="email" className="mb-2 text-purple-500 font-semibold">User Email</label>
+                        <label htmlFor="email" className="mb-2 text-purple-500 font-semibold">
+                            User Email
+                        </label>
                         <input
                             id="email"
                             type="email"
@@ -129,7 +150,9 @@ const UpdateUser = () => {
                     </fieldset>
 
                     <fieldset className="flex flex-col">
-                        <label htmlFor="username" className="mb-2 text-purple-500 font-semibold">User Name</label>
+                        <label htmlFor="username" className="mb-2 text-purple-500 font-semibold">
+                            User Name
+                        </label>
                         <input
                             id="username"
                             type="text"
@@ -147,6 +170,12 @@ const UpdateUser = () => {
                 >
                     Update Task
                 </button>
+
+               
+                <Tooltip id="tooltip-title" />
+                <Tooltip id="tooltip-category" />
+                <Tooltip id="tooltip-deadline" />
+                <Tooltip id="tooltip-budget" />
             </form>
         </div>
     );

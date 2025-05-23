@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { FaTrash, FaEdit, FaGavel } from 'react-icons/fa';
-import { Link } from 'react-router'; 
+import { Link } from 'react-router';
 import Swal from 'sweetalert2';
 import Loading from '../Loding/Loding';
 
@@ -66,7 +66,7 @@ const FeaturedTasks = () => {
     if (loading) return <Loading></Loading>;
 
     return (
-        <div className='bg-black min-h-screen font-display '>
+        <div className='bg-black min-h-screen poppins-font '>
             <section className="w-full px-8 mx-auto max-w-7xl py-12">
                 <h2 className="text-3xl text-center font-bold text-purple-500 mb-8">Featured Tasks</h2>
 
@@ -87,7 +87,7 @@ const FeaturedTasks = () => {
                                     <div className="flex justify-between items-start mb-4">
                                         <h3 className="text-xl font-semibold text-purple-400">{task.title}</h3>
                                         <div className="flex gap-3 items-center">
-                                            <FaGavel title="View Bids" className="text-yellow-400 hover:text-yellow-500 cursor-pointer" size={20} />
+
                                             <Link to={`/update/${task._id}`}><FaEdit className="text-blue-400 hover:text-blue-600 cursor-pointer" size={20} /></Link>
                                             <FaTrash onClick={() => handleDelete(task._id)} className="text-red-400 hover:text-red-600 cursor-pointer" size={20} />
                                         </div>

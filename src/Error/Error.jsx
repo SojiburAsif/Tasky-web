@@ -3,7 +3,7 @@ import { Link } from "react-router";
 
 const Error = () => {
     return (
-        <section className="w-screen  h-screen bg-black flex items-center justify-center relative overflow-hidden">
+        <section className="w-screen   grotesk-font   h-screen bg-black flex items-center justify-center relative overflow-hidden">
             <div className="text-center px-4">
                 <h2 className="mb-2 text-[50px] font-bold leading-none text-purple-500 sm:text-[80px] md:text-[100px]">
                     404
