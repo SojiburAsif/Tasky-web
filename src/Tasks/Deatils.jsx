@@ -1,18 +1,29 @@
-import React, { } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FaGavel } from 'react-icons/fa';
 import { useLoaderData, Link } from 'react-router';
 import { Tooltip } from 'react-tooltip';
 import 'react-tooltip/dist/react-tooltip.css';
 
-
 const Deatils = () => {
     const data = useLoaderData();
-    const { _id,  title, category, description, budget, deadline } = data;
+    const { _id, title, category, description, budget, deadline } = data;
 
+    const [isDarkMode, setIsDarkMode] = useState(() => {
+        return localStorage.getItem('theme') === 'dark';
+    });
 
+    useEffect(() => {
+        if (isDarkMode) {
+            document.documentElement.classList.add('dark');
+            localStorage.setItem('theme', 'dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+            localStorage.setItem('theme', 'light');
+        }
+    }, [isDarkMode]);
 
     return (
-        <div className="min-h-screen bg-black poppins-font text-white p-8">
+        <div className="min-h-screen bg-white dark:bg-black poppins-font text-black dark:text-white p-8">
             <div className="flex justify-between items-center mb-6">
                 <Link
                     to="/"
@@ -20,9 +31,14 @@ const Deatils = () => {
                     ← Back to Home
                 </Link>
 
+                <button
+                    onClick={() => setIsDarkMode(!isDarkMode)}
+                    className="px-4 py-2 rounded-lg bg-gray-300 dark:bg-gray-800 text-black dark:text-white font-medium transition">
+                    {isDarkMode ? '☀ Light Mode' : '🌙 Dark Mode'}
+                </button>
             </div>
 
-            <article className="bg-gray-900 p-10 shadow-2xl rounded-3xl ring-1 ring-gray-700 max-w-5xl mx-auto">
+            <article className="bg-gray-100 dark:bg-gray-900 p-10 shadow-2xl rounded-3xl ring-1 ring-gray-300 dark:ring-gray-700 max-w-5xl mx-auto">
                 <div className="flex flex-col sm:flex-row sm:gap-12">
                     <div
                         className="hidden sm:grid sm:size-32 sm:shrink-0 sm:place-content-center sm:rounded-full sm:border-4 sm:border-purple-600"
@@ -44,11 +60,11 @@ const Deatils = () => {
                             {category}
                         </span>
 
-                        <h1 className="mt-6 text-4xl font-extrabold text-white">{title}</h1>
+                        <h1 className="mt-6 text-4xl font-extrabold dark:text-white text-black">{title}</h1>
 
-                        <p className="mt-6 text-lg text-gray-300 leading-relaxed">{description}</p>
+                        <p className="mt-6 text-lg text-gray-700 dark:text-gray-300 leading-relaxed">{description}</p>
 
-                        <div className="mt-8 flex flex-col sm:flex-row sm:items-center sm:gap-10 text-xl text-gray-200">
+                        <div className="mt-8 flex flex-col sm:flex-row sm:items-center sm:gap-10 text-xl text-gray-800 dark:text-gray-200">
                             <p
                                 className="cursor-help"
                                 data-tooltip-id="tooltip-budget"
@@ -73,7 +89,7 @@ const Deatils = () => {
                                 Place a Bid
                             </button>
 
-                            <span className="text-sm text-gray-300">
+                            <span className="text-sm text-gray-700 dark:text-gray-300">
                                 Bids placed: <span className="font-bold text-purple-400">23</span>
                             </span>
                         </div>
