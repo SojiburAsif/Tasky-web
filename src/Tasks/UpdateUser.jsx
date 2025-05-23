@@ -55,7 +55,7 @@ const UpdateUser = () => {
                     >
                         Home
                     </button>
-                    <h2 className="text-3xl font-extrabold text-white text-center flex-1 text-center">
+                    <h2 className="text-3xl font-extrabold text-white text-center flex-1 ">
                         Update Task Details
                     </h2>
                 </div>

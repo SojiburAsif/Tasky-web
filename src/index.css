@@ -25,4 +25,55 @@
     font-family: "Space Grotesk", sans-serif;
 }
 
+/* @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+/* Smooth color transitions */
+/* body {
+    @apply transition-colors duration-300 ease-in-out;
+}
 
+/* Optional: Add manual support if needed */
+/* html.dark body {
+    @apply bg-gray-900 text-white;
+}
+
+html.light body {
+    @apply bg-white text-black;
+}  */
+
+
+
+@layer base {
+
+    /* Smooth transitions */
+    html {
+        @apply transition-colors duration-300 ease-in-out;
+    }
+
+    /* Light mode: DaisyUI default ভ্যারিয়েবল */
+    html:not(.dark) {
+        --daisyui-primary: var(--tw-color-primary);
+        --daisyui-secondary: var(--tw-color-secondary);
+        /* অন্যান্য প্রয়োজনীয় ভ্যারিয়েবল এখানে ওভাররাইড করতে পার */
+    }
+
+    /* Dark mode: Full black background & DaisyUI vars */
+    html.dark {
+        background-color: #000000;
+        /* পুরো কালো ব্যাকগ্রাউন্ড */
+
+        /* DaisyUI ভ্যারিয়েবল কাস্টমাইজ */
+        --daisyui-base-100: #000000;
+        /* main background */
+        --daisyui-base-content: #f5f5f5;
+        /* text color */
+        --daisyui-primary: #7c3aed;
+        /* purple-600 or নিজের পছন্দ */
+        --daisyui-secondary: #6b21a8;
+        /* darker purple */
+        --daisyui-accent: #e879f9;
+        --daisyui-neutral: #1f2937;
+        /* dark gray */
+        --daisyui-base: #000000;
+        /* প্রয়োজন হলে আরো ভ্যারিয়েবল ওভাররাইড করো */
+    }
+}
