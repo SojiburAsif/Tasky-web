@@ -1,20 +1,26 @@
-import React from 'react';
+import React, { } from 'react';
 import { FaGavel } from 'react-icons/fa';
 import { useLoaderData, Link } from 'react-router';
 import { Tooltip } from 'react-tooltip';
 import 'react-tooltip/dist/react-tooltip.css';
 
+
 const Deatils = () => {
     const data = useLoaderData();
-    const { title, category, description, budget, deadline } = data;
+    const { _id,  title, category, description, budget, deadline } = data;
+
+
 
     return (
         <div className="min-h-screen bg-black poppins-font text-white p-8">
-            <Link
-                to="/"
-                className="inline-block mb-6 px-4 py-2 bg-purple-600 hover:bg-purple-800 rounded-lg text-white font-semibold transition">
-                ← Back to Home
-            </Link>
+            <div className="flex justify-between items-center mb-6">
+                <Link
+                    to="/"
+                    className="inline-block px-4 py-2 bg-purple-600 hover:bg-purple-800 rounded-lg text-white font-semibold transition">
+                    ← Back to Home
+                </Link>
+
+            </div>
 
             <article className="bg-gray-900 p-10 shadow-2xl rounded-3xl ring-1 ring-gray-700 max-w-5xl mx-auto">
                 <div className="flex flex-col sm:flex-row sm:gap-12">
@@ -38,13 +44,9 @@ const Deatils = () => {
                             {category}
                         </span>
 
-                        <h1 className="mt-6 text-4xl font-extrabold text-white">
-                            {title}
-                        </h1>
+                        <h1 className="mt-6 text-4xl font-extrabold text-white">{title}</h1>
 
-                        <p className="mt-6 text-lg text-gray-300 leading-relaxed">
-                            {description}
-                        </p>
+                        <p className="mt-6 text-lg text-gray-300 leading-relaxed">{description}</p>
 
                         <div className="mt-8 flex flex-col sm:flex-row sm:items-center sm:gap-10 text-xl text-gray-200">
                             <p
@@ -63,14 +65,17 @@ const Deatils = () => {
                             </p>
                         </div>
 
-                        {/* View Bids and Place Bid Button */}
-                        <div className="mt-10 flex items-center gap-4">
+                        <div className="mt-10 flex items-center gap-4 justify-between">
                             <button
-                                onClick={() => { /* Handle place bid logic */ }}
+                                onClick={() => { alert('Place bid logic here'); }}
                                 className="bg-purple-500 hover:bg-purple-700 cursor-pointer text-black font-bold py-2 px-4 rounded-lg transition flex items-center gap-2">
-                                <FaGavel className="text-black " size={20} />
+                                <FaGavel className="text-black" size={20} />
                                 Place a Bid
                             </button>
+
+                            <span className="text-sm text-gray-300">
+                                Bids placed: <span className="font-bold text-purple-400">23</span>
+                            </span>
                         </div>
                     </div>
                 </div>

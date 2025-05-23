@@ -34,8 +34,8 @@ const Header = () => {
     const isActive = (path) => location.pathname === path ? 'border-b-2 border-purple-500 pb-1' : '';
 
     return (
-        <nav className="shadow-sm bg-neutral text-neutral-content  grotesk-font  px-4 py-3">
-
+        <nav className="shadow-sm bg-neutral text-neutral-content grotesk-font px-4 py-3">
+            {/* Mobile Navbar */}
             <div className="flex items-center justify-between lg:hidden">
                 <div className="dropdown">
                     <button tabIndex={0} className="btn btn-ghost p-2" aria-label="Toggle menu">
@@ -45,7 +45,7 @@ const Header = () => {
                                 d="M4 6h16M4 12h8m-8 6h16" />
                         </svg>
                     </button>
-                    <ul tabIndex={0} className="menu menu-compact  dropdown-content mt-2 p-2 shadow bg-base-100 rounded-box w-48">
+                    <ul tabIndex={0} className="menu menu-compact dropdown-content mt-2 p-2 shadow bg-base-100 rounded-box w-48">
                         <li><Link to="/">Home</Link></li>
                         <li><button onClick={handleBrowseClick}>Browse Tasks</button></li>
                         <li><Link to="/add-task">Add Task</Link></li>
@@ -59,12 +59,16 @@ const Header = () => {
 
                 <div className="flex space-x-2">
                     {user ? (
-                        <button
-                            onClick={handleLogout}
-                            className="btn btn-sm border border-white rounded-full text-white hover:text-red-400 hover:border-none transition duration-300"
-                        >
-                            Logout
-                        </button>
+                        <div className="dropdown dropdown-end">
+                            <label tabIndex={0} className="avatar cursor-pointer">
+                                <div className="w-10 rounded-full border-1 border-purple-500">
+                                    <img src={user.photoURL || 'https://i.ibb.co/JmW6mPv/default-user.png'} alt="User Avatar" />
+                                </div>
+                            </label>
+                            <ul tabIndex={0} className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-44 mt-3">
+                                <li><button onClick={handleLogout} className="text-red-500">Logout</button></li>
+                            </ul>
+                        </div>
                     ) : (
                         <>
                             <Link to="/login" className="btn btn-sm border border-white rounded-full text-white hover:text-purple-500 hover:border-none transition duration-300">Login</Link>
@@ -81,43 +85,24 @@ const Header = () => {
                 </Link>
 
                 <div className="flex space-x-6">
-                    <Link
-                        to="/"
-                        className={`transition hover:text-purple-500 ${isActive('/')}`}
-                    >
-                        Home
-                    </Link>
-
-                    <button
-                        onClick={handleBrowseClick}
-                        className={`transition hover:text-purple-500 mb-1 ${isActive('/main-tasks')}`}
-                    >
-                        Browse Tasks
-                    </button>
-
-                    <Link
-                        to="/add-task"
-                        className={`transition hover:text-purple-500 ${isActive('/add-task')}`}
-                    >
-                        Add Task
-                    </Link>
-                    <Link
-                        to="/my-tasks"
-                        className={`transition hover:text-purple-500 ${isActive('/Mytasks')}`}
-                    >
-                        My Posted Tasks
-                    </Link>
+                    <Link to="/" className={`transition hover:text-purple-500 ${isActive('/')}`}>Home</Link>
+                    <button onClick={handleBrowseClick} className={`transition hover:text-purple-500 mb-1 ${isActive('/main-tasks')}`}>Browse Tasks</button>
+                    <Link to="/add-task" className={`transition hover:text-purple-500 ${isActive('/add-task')}`}>Add Task</Link>
+                    <Link to="/my-tasks" className={`transition hover:text-purple-500 ${isActive('/Mytasks')}`}>My Posted Tasks</Link>
                 </div>
 
                 <div className="flex gap-3">
-                    
                     {user ? (
-                        <button
-                            onClick={handleLogout}
-                            className="btn border border-white rounded-full text-white hover:text-purple-500 hover:border-none transition duration-300 pb-1"
-                        >
-                            Logout
-                        </button>
+                        <div className="dropdown dropdown-end">
+                            <label tabIndex={0} className="avatar cursor-pointer">
+                                <div className="w-10 rounded-full border-2 border-purple-500">
+                                    <img src={user.photoURL || 'https://i.ibb.co/S47T06r9/download-3.png'} alt="User Avatar" />
+                                </div>
+                            </label>
+                            <ul tabIndex={0} className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-44 mt-3">
+                                <li><button onClick={handleLogout} className="text-red-500">Logout</button></li>
+                            </ul>
+                        </div>
                     ) : (
                         <>
                             <Link to="/login" className="btn border pb-1 border-white rounded-full text-white hover:text-purple-500 hover:border-none transition duration-300">Login</Link>

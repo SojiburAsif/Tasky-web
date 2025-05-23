@@ -47,7 +47,18 @@ const UpdateUser = () => {
                 onSubmit={handlUpdateTask}
                 className="bg-gradient-to-r from-[#040104] to-[#100415] border border-purple-900 rounded-2xl p-10 w-full max-w-screen-lg space-y-6 cursor-default"
             >
-                <h2 className="text-3xl font-extrabold text-white text-center">Update Task Details</h2>
+                <div className="flex justify-between items-center">
+                    <button
+                        type="button"
+                        onClick={() => navigate('/')}
+                        className="bg-purple-700 text-white font-semibold py-2 px-4 rounded-lg shadow hover:bg-purple-800 transition"
+                    >
+                        Home
+                    </button>
+                    <h2 className="text-3xl font-extrabold text-white text-center flex-1 text-center">
+                        Update Task Details
+                    </h2>
+                </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <fieldset className="flex flex-col">
@@ -171,7 +182,6 @@ const UpdateUser = () => {
                     Update Task
                 </button>
 
-               
                 <Tooltip id="tooltip-title" />
                 <Tooltip id="tooltip-category" />
                 <Tooltip id="tooltip-deadline" />

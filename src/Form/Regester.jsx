@@ -50,9 +50,11 @@ const Register = () => {
                 console.log(userCredential.user);
 
                 const user = userCredential.user;
-                updateUser({ displayName: name })
+                updateUser({ displayName: name, photoURL: photo })
                     .then(() => {
-                        setuser({ ...user, displayName: name });
+                        setuser({
+                            ...user, displayName: name, photoURL: photo
+                        });
                     })
                     .catch((error) => {
                         console.log(error);
@@ -98,7 +100,7 @@ const Register = () => {
                     })
 
 
-                navigate('/'); 
+                navigate('/');
             })
             .catch((error) => {
                 console.log(error.code, error.message);
@@ -118,7 +120,7 @@ const Register = () => {
             .then((result) => {
                 console.log(result.user);
                 toast.success("Google sign-in success");
-                navigate('/'); 
+                navigate('/');
             })
             .catch((error) => {
                 console.error("Google Sign-In Error:", error);
