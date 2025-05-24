@@ -68,8 +68,6 @@ const HomeTasks = () => {
     if (loading) {
         return <Loading />;
     }
-
-    // থিম ভিত্তিক ক্লাস নির্ধারণ
     const bgColor = theme === 'dark' ? 'bg-black' : 'bg-white';
     const sectionBg = theme === 'dark' ? 'bg-gray-900' : 'bg-gray-100';
     const textPrimary = theme === 'dark' ? 'text-white' : 'text-gray-900';

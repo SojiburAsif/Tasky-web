@@ -37,7 +37,6 @@ const AddTask = () => {
                 }
             });
     };
-
     return (
         <section className="bg-black min-h-screen">
             <Header />

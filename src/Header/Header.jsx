@@ -77,7 +77,7 @@ const Header = () => {
         </Link>
 
         <div className="flex items-center space-x-3">
-          {/* Theme Toggle */}
+   
           <button
             onClick={toggleTheme}
             className="p-2 rounded-full transition duration-300 hover:bg-gray-200 dark:hover:bg-gray-700"
@@ -118,7 +118,7 @@ const Header = () => {
       <div className="hidden lg:flex items-center justify-between">
         <Link to="/">
           <img
-            src="https://i.ibb.co/tM1fXLzx/Chat-GPT-Image-May-20-2025-05-52-48-PM.png"
+            src="https://i.ibb.co/qLr0Nspj/ffee6d8c-7850-4475-972a-f68b63aa4eed.png"
             alt="Taskly Logo"
             className="h-12 w-auto"
           />

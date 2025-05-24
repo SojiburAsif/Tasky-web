@@ -3,7 +3,7 @@ import { ThemeContext } from '../Header/ThemsProvider';
 
 
 const timeAgo = (postedDate) => {
-    // আগের মতোই...
+  
     const now = new Date();
     const posted = new Date(postedDate);
     const diffInMs = now - posted;

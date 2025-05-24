@@ -45,7 +45,7 @@ const services = [
 const Servis = () => {
     const { theme } = useContext(ThemeContext);
 
-    // থিম অনুযায়ী আইকন কালার সেট করার জন্য helper ফাংশন
+
     const iconColor = (index) => {
         const colorsLight = ['text-purple-500', 'text-green-500', 'text-blue-500', 'text-red-500', 'text-indigo-500', 'text-pink-500'];
         const colorsDark = ['text-purple-400', 'text-green-400', 'text-blue-400', 'text-red-400', 'text-indigo-400', 'text-pink-400'];
@@ -55,7 +55,7 @@ const Servis = () => {
     return (
         <div className={`poppins-font px-6 py-12 ${theme === 'dark' ? 'bg-black text-white' : 'bg-white text-gray-900'}`}>
             <div className="max-w-7xl mx-auto">
-                {/* Marquee Section */}
+            
                 <Marquee gradient={false} speed={50} className="mb-8">
                     <div className={`flex items-center gap-8 font-semibold text-lg ${theme === 'dark' ? 'text-purple-400' : 'text-purple-600'}`}>
                         <FaPaintBrush /> Design & Creative
@@ -67,7 +67,7 @@ const Servis = () => {
                     </div>
                 </Marquee>
 
-                {/* Section Title */}
+        
                 <h2 className={`text-4xl font-bold text-left ${theme === 'dark' ? 'text-purple-400' : 'text-purple-500'}`}>
                     Our Services
                 </h2>
@@ -75,7 +75,7 @@ const Servis = () => {
                     Get inspired by 800+ skills and discover the perfect freelancer for your next big project.
                 </p>
 
-                {/* Service Cards */}
+          
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-10 justify-center items-center">
                     {services.map((service, index) => (
                         <div
@@ -87,7 +87,7 @@ const Servis = () => {
                                 }
                             `}
                         >
-                            {/* আইকনের কালার থিম অনুযায়ী */}
+                        
                             {React.cloneElement(service.icon, { className: `${iconColor(index)} mb-4` })}
 
                             <p className={`${theme === 'dark' ? 'text-gray-400' : 'text-gray-500'} text-sm mb-1`}>
