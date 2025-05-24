@@ -1,15 +1,15 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { FaTrash, FaEdit, FaGavel } from 'react-icons/fa';
+import { FaTrash, FaEdit } from 'react-icons/fa';
 import { Link } from 'react-router';
 import Swal from 'sweetalert2';
 import Header from '../Header/Header';
 import { AuthContext } from '../Contexts/AuthContext';
 import Loading from '../Loding/Loding';
+import { ThemeContext } from '../Header/ThemsProvider'; 
 
 const HomeTasks = () => {
     const { loading } = useContext(AuthContext);
-
-
+    const { theme } = useContext(ThemeContext); 
 
     const [tasks, setTasks] = useState([]);
 
@@ -65,52 +65,67 @@ const HomeTasks = () => {
         return diff;
     };
 
-
-
     if (loading) {
-        return <Loading></Loading>;
+        return <Loading />;
     }
-    return (
-        <div className='   bg-black
-    min-h-screen
-poppins-font
-    hover:animate-purpleGlow
-    transition-colors duration-500 ease-in-out '>
 
-            <section className="w-full px-8 mx-auto max-w-7xl py-12">
-                <h2 className="text-3xl text-center font-bold text-purple-500 mb-8">Featured Tasks</h2>
+    // থিম ভিত্তিক ক্লাস নির্ধারণ
+    const bgColor = theme === 'dark' ? 'bg-black' : 'bg-white';
+    const sectionBg = theme === 'dark' ? 'bg-gray-900' : 'bg-gray-100';
+    const textPrimary = theme === 'dark' ? 'text-white' : 'text-gray-900';
+    const textSecondary = theme === 'dark' ? 'text-gray-400' : 'text-gray-700';
+    const ringNormal = theme === 'dark' ? 'ring-gray-800 hover:ring-purple-200 hover:shadow-purple-800' : 'ring-gray-300 hover:ring-purple-500 hover:shadow-purple-500';
+    const ringUrgent = theme === 'dark' ? 'ring-red-500 hover:ring-red-300' : 'ring-red-600 hover:ring-red-400';
+
+    return (
+        <div className={`${bgColor} min-h-screen poppins-font transition-colors duration-500 ease-in-out`}>
+            <section className={`w-full px-8 mx-auto max-w-7xl py-12 ${sectionBg} rounded-xl`}>
+                <h2 className={`text-3xl text-center font-bold mb-8 ${textPrimary}`}>Featured Tasks</h2>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                     {tasks.slice(0, 6).map(task => {
                         const days = daysUntil(task.deadline);
                         const urgent = days <= 15 && days >= 0;
+
                         return (
                             <div
                                 key={task._id}
-                                className={`rounded-xl bg-gray-900 text-white p-6 shadow ring-2 transition-all duration-300 flex flex-col justify-between
-                                    ${urgent
-                                        ? 'ring-red-500 hover:ring-red-300'
-                                        : 'ring-gray-800 hover:ring-purple-200 hover:shadow-purple-800'
-                                    }`}
+                                className={`rounded-xl p-6 shadow ring-2 transition-all duration-300 flex flex-col justify-between
+                                    ${urgent ? ringUrgent : ringNormal}
+                                    ${textPrimary} bg-transparent`}
                             >
                                 <div>
                                     <div className="flex justify-between items-start mb-4">
                                         <h3 className="text-xl font-semibold text-purple-400">{task.title}</h3>
                                         <div className="flex gap-3 items-center">
-
-                                            <Link to={`/update/${task._id}`}><FaEdit className="text-blue-400 hover:text-blue-600 cursor-pointer" size={20} /></Link>
-                                            <FaTrash onClick={() => handleDelete(task._id)} className="text-red-400 hover:text-red-600 cursor-pointer" size={20} />
+                                            <Link to={`/update/${task._id}`}>
+                                                <FaEdit className="text-blue-400 hover:text-blue-600 cursor-pointer" size={20} />
+                                            </Link>
+                                            <FaTrash
+                                                onClick={() => handleDelete(task._id)}
+                                                className="text-red-400 hover:text-red-600 cursor-pointer"
+                                                size={20}
+                                            />
                                         </div>
                                     </div>
-                                    <p className="text-sm mb-2"><strong className="text-gray-400">Category:</strong> {task.category}</p>
-                                    <p className="text-gray-300 mb-4 flex-grow">{task.description}</p>
-                                    <div className="flex justify-between text-sm text-gray-400 mb-4">
-                                        <p><strong>Budget:</strong> <span className="text-indigo-400">${task.budget}</span></p>
-                                        <p className={`font-semibold text-base ${urgent ? 'text-red-500' : 'text-purple-400'}`}>Deadline: {task.deadline} ({days}d)</p>
+                                    <p className={`text-sm mb-2 ${textSecondary}`}>
+                                        <strong>Category:</strong> {task.category}
+                                    </p>
+                                    <p className={`mb-4 flex-grow ${textSecondary}`}>{task.description}</p>
+                                    <div className="flex justify-between text-sm mb-4">
+                                        <p>
+                                            <strong>Budget:</strong>{' '}
+                                            <span className="text-indigo-400">${task.budget}</span>
+                                        </p>
+                                        <p className={`font-semibold text-base ${urgent ? 'text-red-500' : 'text-purple-400'}`}>
+                                            Deadline: {task.deadline} ({days}d)
+                                        </p>
                                     </div>
                                 </div>
                                 <Link to={`/view-deatils/${task._id}`}>
-                                    <button className="mt-auto bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded w-full text-center transition">View Details</button>
+                                    <button className="mt-auto bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded w-full text-center transition">
+                                        View Details
+                                    </button>
                                 </Link>
                             </div>
                         );

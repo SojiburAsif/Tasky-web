@@ -9,14 +9,17 @@ import {
 import { router } from './Router/Router';
 import AuthProvider from './Contexts/AuthProvider';
 import { Toaster } from 'react-hot-toast';
+import ThemeProvider, { ThemeContext } from './Header/ThemsProvider';
 
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-     
-     <Toaster />
-    <AuthProvider>
-      <RouterProvider router={router} />
-    </AuthProvider>
+
+    <Toaster />
+    <ThemeProvider>
+      <AuthProvider>
+        <RouterProvider router={router} />
+      </AuthProvider>
+    </ThemeProvider>
   </StrictMode>,
 )

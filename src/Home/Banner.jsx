@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
@@ -6,6 +6,8 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import { Keyboard, Pagination, Navigation } from 'swiper/modules';
 import { Typewriter } from 'react-simple-typewriter';
+import { ThemeContext } from '../Header/ThemsProvider';
+
 
 const images = [
     "https://images.pexels.com/photos/461064/pexels-photo-461064.jpeg",
@@ -14,11 +16,16 @@ const images = [
 ];
 
 const Banner = () => {
+    const { theme } = useContext(ThemeContext); 
+
     return (
-        <section className="bg-white dark:bg-gray-900 min-h-screen flex flex-col poppins-font md:flex-row items-start justify-start">
+        <section
+            className={`min-h-screen flex flex-col md:flex-row items-start justify-start poppins-font transition-colors duration-500 ${theme === 'dark' ? 'bg-gray-900 text-white' : 'bg-white text-gray-900'
+                }`}
+        >
             <div className="w-full md:w-1/2 px-4 sm:px-6 md:px-8 lg:px-16 py-16 sm:py-24 lg:py-32 mx-auto">
                 <div className="max-w-prose text-left">
-                    <h1 className="font-bold text-3xl sm:text-4xl md:text-5xl text-gray-900 dark:text-white">
+                    <h1 className="font-bold text-3xl sm:text-4xl md:text-5xl">
                         Empower Your{' '}
                         <span className="text-purple-500">
                             <Typewriter
@@ -34,7 +41,7 @@ const Banner = () => {
                         with Top Freelancers
                     </h1>
 
-                    <p className="mt-4 text-base sm:text-lg text-gray-700 dark:text-gray-200">
+                    <p className="mt-4 text-base sm:text-lg">
                         our platform connects you to skilled professionals worldwide. Post your project, collaborate seamlessly, and achieve outstanding results.
                     </p>
 
@@ -42,14 +49,18 @@ const Banner = () => {
                         <Link
                             to="/add-task"
                             className="inline-block rounded border border-purple-500 bg-purple-500 px-6 py-3 font-medium text-white shadow-sm 
-             transition-transform duration-300 hover:bg-purple-700 hover:scale-105 
-             active:scale-95 active:bg-purple-800" >
+              transition-transform duration-300 hover:bg-purple-700 hover:scale-105 
+              active:scale-95 active:bg-purple-800"
+                        >
                             Post a Project
                         </Link>
 
                         <Link
                             to="#"
-                            className="inline-block rounded border border-gray-200 px-6 py-3 font-medium text-gray-700 shadow-sm transition-colors hover:bg-gray-50 hover:text-gray-900 dark:border-gray-700 dark:text-gray-200 dark:hover:bg-gray-800 dark:hover:text-white"
+                            className={`inline-block rounded border px-6 py-3 font-medium shadow-sm transition-colors ${theme === 'dark'
+                                    ? 'border-gray-700 text-gray-200 hover:bg-gray-800 hover:text-white'
+                                    : 'border-gray-200 text-gray-700 hover:bg-gray-50 hover:text-gray-900'
+                                }`}
                         >
                             Find Freelancer
                         </Link>

@@ -1,15 +1,13 @@
-import React, { } from 'react';
-import { Link, } from 'react-router'; 
+import React, { useContext } from 'react';
+import { Link, useLocation } from 'react-router';  
 import { FaFacebook, FaInstagram, FaGithub, FaTwitter } from "react-icons/fa";
 import { CiLinkedin } from "react-icons/ci";
-import { AuthContext } from '../Contexts/AuthContext';
+import { ThemeContext } from '../Header/ThemsProvider'; 
 
 const Fooder = () => {
-   
-   
+    const { theme } = useContext(ThemeContext); 
+    const location = useLocation(); 
     const currentPath = location.pathname;
-
-   
 
     const isActive = (path) =>
         currentPath === path
@@ -17,7 +15,7 @@ const Fooder = () => {
             : 'hover:text-purple-500';
 
     return (
-        <footer className="bg-gray-100 roboto-font dark:bg-black">
+        <footer className={`roboto-font transition-colors duration-500 ${theme === 'dark' ? 'bg-black text-white' : 'bg-gray-100 text-black'}`}>
             <div className="mx-auto max-w-5xl px-4 py-16 sm:px-6 lg:px-8">
                 <div className="flex justify-center text-teal-600 dark:text-teal-300">
                     <img
@@ -31,53 +29,44 @@ const Fooder = () => {
                     Taskly is your go-to platform for hiring and offering freelance services for small, everyday tasks. Connect, collaborate, and get things done with ease.
                 </p>
 
-                <ul className="mt-12 flex flex-wrap justify-center gap-6 md:gap-8 lg:gap-12 text-black dark:text-white text-base font-medium">
+                <ul className="mt-12 flex flex-wrap justify-center gap-6 md:gap-8 lg:gap-12 text-base font-medium">
                     <li>
-                        <Link to="/" className={isActive('/')}>
-                            Home
-                        </Link>
-                    </li>
-                 
-                    <li>
-                        <Link to="/blog" className={isActive('/Blog')}>
-                            Blog
-                        </Link>
+                        <Link to="/" className={isActive('/')}>Home</Link>
                     </li>
                     <li>
-                        <Link to="/about" className={isActive('/Blog')}>
-                            About
-                        </Link>
+                        <Link to="/blog" className={isActive('/blog')}>Blog</Link>
                     </li>
                     <li>
-                        <Link to="/about" className={isActive('/Blog')}>
-                           Contact
-                        </Link>
+                        <Link to="/about" className={isActive('/about')}>About</Link>
+                    </li>
+                    <li>
+                        <Link to="/contact" className={isActive('/contact')}>Contact</Link>
                     </li>
                 </ul>
 
-                <ul className="mt-12 flex justify-center gap-6 md:gap-8 text-gray-700 dark:text-white">
+                <ul className="mt-12 flex justify-center gap-6 md:gap-8">
                     <li>
-                        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="cursor-pointer">
+                        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
                             <FaFacebook size={27} />
                         </a>
                     </li>
                     <li>
-                        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="cursor-pointer">
+                        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
                             <CiLinkedin size={27} />
                         </a>
                     </li>
                     <li>
-                        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="cursor-pointer">
+                        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
                             <FaInstagram size={27} />
                         </a>
                     </li>
                     <li>
-                        <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="cursor-pointer">
+                        <a href="https://github.com" target="_blank" rel="noopener noreferrer">
                             <FaGithub size={27} />
                         </a>
                     </li>
                     <li>
-                        <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="cursor-pointer">
+                        <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
                             <FaTwitter size={27} />
                         </a>
                     </li>
