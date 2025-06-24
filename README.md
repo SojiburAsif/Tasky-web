@@ -1,4 +1,4 @@
-# 🚀 Project Name: [Your Project Name Here]
+# 🚀 Project Name: [Tasky]
 
 [![Live Demo](https://img.shields.io/badge/Live-Demo-brightgreen)](https://symphonious-bubblegum-ad2f44.netlify.app/)
 
