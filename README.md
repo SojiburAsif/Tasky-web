@@ -1,12 +1,60 @@
-# React + Vite
+# Tasky - Freelancing Web Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+[![Netlify Status](https://img.shields.io/netlify/your-netlify-site-id?style=flat-square)](https://symphonious-bubblegum-ad2f44.netlify.app/)
 
-Currently, two official plugins are available:
+🔗 **Live Demo:** [https://symphonious-bubblegum-ad2f44.netlify.app/](https://symphonious-bubblegum-ad2f44.netlify.app/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## 🌟 Overview
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Tasky is a modern freelancing platform built with the **MERN stack** and several popular React libraries. It enables users to find and hire freelancers easily, manage projects, and communicate effectively.
+
+---
+
+## 🚀 Features
+
+- User authentication with Firebase.
+- Responsive and dynamic UI built with React and Tailwind CSS.
+- Smooth animations and transitions using `react-awesome-reveal` and `lottie-react`.
+- Real-time notifications and alerts via `react-hot-toast` and `sweetalert2`.
+- Seamless routing with React Router v7.
+- Interactive carousels and sliders using `react-slick` and `swiper`.
+- Typing effects using `react-simple-typewriter`.
+- Iconography powered by `react-icons`.
+- Mobile-friendly design with Tailwind CSS and custom styles.
+- Integration with Firebase for backend services.
+- Fast and smooth scrolling marquees with `react-fast-marquee`.
+
+---
+
+## 🛠️ Tech Stack & Dependencies
+
+- **Frontend:** React 19, React Router 7, Tailwind CSS 4, Firebase 11
+- **Animations:** `lottie-react`, `react-awesome-reveal`, `react-simple-typewriter`
+- **UI Components:** `react-icons`, `react-hot-toast`, `sweetalert2`, `react-tooltip`
+- **Carousels:** `react-slick`, `slick-carousel`, `swiper`
+- **Styling:** Tailwind CSS, `@fontsource/roboto`
+- **Build Tool:** Vite with `@tailwindcss/vite` plugin
+
+```json
+{
+  "@fontsource/roboto": "^5.2.5",
+  "@tailwindcss/vite": "^4.1.7",
+  "firebase": "^11.7.3",
+  "lottie-react": "^2.4.1",
+  "react": "^19.1.0",
+  "react-awesome-reveal": "^4.3.1",
+  "react-dom": "^19.1.0",
+  "react-fast-marquee": "^1.6.5",
+  "react-hot-toast": "^2.5.2",
+  "react-icons": "^5.5.0",
+  "react-router": "^7.6.0",
+  "react-simple-typewriter": "^5.0.1",
+  "react-slick": "^0.30.3",
+  "react-tooltip": "^5.28.1",
+  "slick-carousel": "^1.8.1",
+  "sweetalert2": "^11.21.2",
+  "swiper": "^11.2.7",
+  "tailwindcss": "^4.1.7"
+}
