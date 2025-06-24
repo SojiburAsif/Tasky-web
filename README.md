@@ -19,43 +19,43 @@
 ## 🛠️ Project Dependencies & Tools
 
 ### Core Libraries
-| Package           | Version  | Description                        |
-|-------------------|----------|----------------------------------|
-| `react`           | ^19.1.0  | React library                    |
-| `react-dom`       | ^19.1.0  | React DOM renderer               |
-| `react-router`    | ^7.6.0   | Client-side routing              |
-| `firebase`        | ^11.7.3  | Firebase services & authentication |
+| Package           | Description                        |
+|-------------------|----------------------------------|
+| ![React](https://img.shields.io/badge/react-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)           | React library                    |
+| ![React DOM](https://img.shields.io/badge/react--dom-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)       | React DOM renderer               |
+| ![React Router](https://img.shields.io/badge/react--router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)    | Client-side routing              |
+| ![Firebase](https://img.shields.io/badge/firebase-FFCA28?style=for-the-badge&logo=firebase&logoColor=black)        | Firebase services & authentication |
 
 ### Styling & Theming
-| Package           | Version  | Description                        |
-|-------------------|----------|----------------------------------|
-| `tailwindcss`     | ^4.1.7   | Utility-first CSS framework       |
-| `@tailwindcss/vite`| ^4.1.7  | Tailwind plugin for Vite          |
-| `@fontsource/roboto` | ^5.2.5| Roboto font integration           |
-| **Dark/Light Mode**| —        | Implemented via Tailwind CSS dark mode class or React state |
+| Package           | Description                        |
+|-------------------|----------------------------------|
+| ![Tailwind CSS](https://img.shields.io/badge/tailwindcss-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)     | Utility-first CSS framework       |
+| ![Vite Tailwind](https://img.shields.io/badge/vite-646CFF?style=for-the-badge&logo=vite&logoColor=white) | Tailwind plugin for Vite          |
+| ![Roboto](https://img.shields.io/badge/roboto-000000?style=for-the-badge&logo=google&logoColor=white) | Roboto font integration           |
+| **Dark/Light Mode**| Implemented via Tailwind CSS dark mode class or React state |
 
 ### UI & Animation
-| Package               | Version  | Description                   |
-|-----------------------|----------|-------------------------------|
-| `react-awesome-reveal`| ^4.3.1   | Reveal animations              |
-| `lottie-react`        | ^2.4.1   | Lottie animations              |
-| `react-simple-typewriter` | ^5.0.1| Typewriter effect              |
-| `react-hot-toast`     | ^2.5.2   | Toast notifications            |
-| `sweetalert2`        | ^11.21.2 | Beautiful popup alerts         |
-| `react-tooltip`      | ^5.28.1  | Tooltip components             |
+| Package               | Description                   |
+|-----------------------|-------------------------------|
+| ![React Awesome Reveal](https://img.shields.io/badge/react--awesome--reveal-61DAFB?style=for-the-badge&logo=react&logoColor=white) | Reveal animations              |
+| ![Lottie React](https://img.shields.io/badge/lottie-react-FF3D00?style=for-the-badge)        | Lottie animations              |
+| ![React Simple Typewriter](https://img.shields.io/badge/react--simple--typewriter-61DAFB?style=for-the-badge&logo=react&logoColor=white) | Typewriter effect              |
+| ![React Hot Toast](https://img.shields.io/badge/react--hot--toast-FF4500?style=for-the-badge)     | Toast notifications            |
+| ![SweetAlert2](https://img.shields.io/badge/sweetalert2-000000?style=for-the-badge&logo=sweetalert&logoColor=white)        | Beautiful popup alerts         |
+| ![React Tooltip](https://img.shields.io/badge/react--tooltip-61DAFB?style=for-the-badge&logo=react&logoColor=white)      | Tooltip components             |
 
 ### Carousel & Scrolling
-| Package               | Version  | Description                   |
-|-----------------------|----------|-------------------------------|
-| `react-slick`         | ^0.30.3  | Carousel slider                |
-| `slick-carousel`      | ^1.8.1   | Carousel styles                |
-| `swiper`              | ^11.2.7  | Modern touch slider            |
-| `react-fast-marquee`  | ^1.6.5   | Smooth scrolling marquee       |
+| Package               | Description                   |
+|-----------------------|-------------------------------|
+| ![React Slick](https://img.shields.io/badge/react--slick-0D8ABC?style=for-the-badge&logo=react&logoColor=white)         | Carousel slider                |
+| ![Slick Carousel](https://img.shields.io/badge/slick--carousel-000000?style=for-the-badge&logo=carousel&logoColor=white)      | Carousel styles                |
+| ![Swiper](https://img.shields.io/badge/swiper-007aff?style=for-the-badge&logo=swiper&logoColor=white)              | Modern touch slider            |
+| ![React Fast Marquee](https://img.shields.io/badge/react--fast--marquee-61DAFB?style=for-the-badge&logo=react&logoColor=white)  | Smooth scrolling marquee       |
 
 ### Icons & Dev Tools
-| Package               | Version  | Description                   |
-|-----------------------|----------|-------------------------------|
-| `react-icons`         | ^5.5.0   | Popular icon sets              |
+| Package               | Description                   |
+|-----------------------|-------------------------------|
+| ![React Icons](https://img.shields.io/badge/react--icons-61DAFB?style=for-the-badge&logo=react&logoColor=white)         | Popular icon sets              |
 
 ---
 
