@@ -18,7 +18,10 @@ createRoot(document.getElementById('root')).render(
     <Toaster />
     <ThemeProvider>
       <AuthProvider>
-        <RouterProvider router={router} />
+        <div className='font-rancho'>
+             <RouterProvider router={router} />
+        </div>
+     
       </AuthProvider>
     </ThemeProvider>
   </StrictMode>,

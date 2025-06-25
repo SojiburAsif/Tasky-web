@@ -2,14 +2,13 @@ import React, { useContext, useEffect, useState } from 'react';
 import { FaTrash, FaEdit } from 'react-icons/fa';
 import { Link } from 'react-router';
 import Swal from 'sweetalert2';
-import Header from '../Header/Header';
 import { AuthContext } from '../Contexts/AuthContext';
 import Loading from '../Loding/Loding';
-import { ThemeContext } from '../Header/ThemsProvider'; 
+import { ThemeContext } from '../Header/ThemsProvider';
 
 const HomeTasks = () => {
     const { loading } = useContext(AuthContext);
-    const { theme } = useContext(ThemeContext); 
+    const { theme } = useContext(ThemeContext);
 
     const [tasks, setTasks] = useState([]);
 
@@ -76,8 +75,9 @@ const HomeTasks = () => {
     const ringUrgent = theme === 'dark' ? 'ring-red-500 hover:ring-red-300' : 'ring-red-600 hover:ring-red-400';
 
     return (
-        <div className={`${bgColor} min-h-screen poppins-font transition-colors duration-500 ease-in-out`}>
-            <section className={`w-full px-8 mx-auto max-w-7xl py-12 ${sectionBg} rounded-xl`}>
+
+        <div className={`${bgColor} min-h-screen  poppins-font transition-colors duration-500 ease-in-out`}>
+            <section className={`w-full px-8  mx-auto max-w-7xl py-18 ${sectionBg} rounded-xl my-5`}>
                 <h2 className={`text-3xl text-center font-bold mb-8 ${textPrimary}`}>Featured Tasks</h2>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -90,8 +90,7 @@ const HomeTasks = () => {
                                 key={task._id}
                                 className={`rounded-xl p-6 shadow ring-2 transition-all duration-300 flex flex-col justify-between
                                     ${urgent ? ringUrgent : ringNormal}
-                                    ${textPrimary} bg-transparent`}
-                            >
+                                    ${textPrimary} bg-transparent`}>
                                 <div>
                                     <div className="flex justify-between items-start mb-4">
                                         <h3 className="text-xl font-semibold text-purple-400">{task.title}</h3>

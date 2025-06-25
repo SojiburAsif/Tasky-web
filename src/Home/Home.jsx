@@ -7,24 +7,24 @@ import { Outlet } from 'react-router';
 import { AuthContext } from '../Contexts/AuthContext';
 import Servis from './Servis';
 import Loading from '../Loding/Loding';
-
+import { ThemeContext } from '../Header/ThemsProvider';
 
 const Home = () => {
     const { user, loading } = useContext(AuthContext);
+    const { theme } = useContext(ThemeContext);
 
     if (loading) {
-        return <Loading></Loading>;
+        return <Loading />;
     }
 
     return (
-        <div>
+        <div className={`${theme === 'dark' ? 'bg-black text-white' : 'bg-white text-black'} min-h-screen transition-colors duration-500`}>
             <Header />
             <Banner />
             <Outlet />
 
-
             {user && <HomeTasks />}
-            <Servis></Servis>
+            <Servis />
             <Latest />
         </div>
     );

@@ -1,12 +1,12 @@
 import React, { useContext } from 'react';
-import { Link, useLocation } from 'react-router';  
+import { Link, useLocation } from 'react-router';
 import { FaFacebook, FaInstagram, FaGithub, FaTwitter } from "react-icons/fa";
 import { CiLinkedin } from "react-icons/ci";
-import { ThemeContext } from '../Header/ThemsProvider'; 
+import { ThemeContext } from '../Header/ThemsProvider';
 
 const Fooder = () => {
-    const { theme } = useContext(ThemeContext); 
-    const location = useLocation(); 
+    const { theme } = useContext(ThemeContext);
+    const location = useLocation();
     const currentPath = location.pathname;
 
     const isActive = (path) =>
@@ -46,27 +46,32 @@ const Fooder = () => {
 
                 <ul className="mt-12 flex justify-center gap-6 md:gap-8">
                     <li>
-                        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+                        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer"
+                            className="text-blue-600 hover:text-blue-800 transition">
                             <FaFacebook size={27} />
                         </a>
                     </li>
                     <li>
-                        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+                        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer"
+                            className="text-blue-700 hover:text-blue-900 transition">
                             <CiLinkedin size={27} />
                         </a>
                     </li>
                     <li>
-                        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+                        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer"
+                            className="text-pink-500 hover:text-pink-700 transition">
                             <FaInstagram size={27} />
                         </a>
                     </li>
                     <li>
-                        <a href="https://github.com" target="_blank" rel="noopener noreferrer">
+                        <a href="https://github.com" target="_blank" rel="noopener noreferrer"
+                            className="text-gray-700 hover:text-black dark:text-gray-300 dark:hover:text-white transition">
                             <FaGithub size={27} />
                         </a>
                     </li>
                     <li>
-                        <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
+                        <a href="https://twitter.com" target="_blank" rel="noopener noreferrer"
+                            className="text-blue-400 hover:text-blue-600 transition">
                             <FaTwitter size={27} />
                         </a>
                     </li>

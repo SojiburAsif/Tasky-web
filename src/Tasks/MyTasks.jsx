@@ -1,16 +1,18 @@
 import React, { useContext, useState } from 'react';
-import { useLoaderData, Link } from 'react-router';
+import { useLoaderData, Link } from 'react-router'; 
 import { AuthContext } from '../Contexts/AuthContext';
 import Header from '../Header/Header';
 import { FaTrash, FaEdit } from 'react-icons/fa';
 import Swal from 'sweetalert2';
+import { ThemeContext } from '../Header/ThemsProvider';
 
 const MyTasks = () => {
-    const tasks = useLoaderData(); // assume loader returns array of tasks
+    const tasks = useLoaderData();
     const { user } = useContext(AuthContext);
     const [myTasks, setMyTasks] = useState(
         tasks.filter(task => task.email === user?.email)
     );
+    const { theme } = useContext(ThemeContext);
 
     const handleDelete = (_id) => {
         Swal.fire({
@@ -48,26 +50,33 @@ const MyTasks = () => {
         });
     };
 
+    // 🔧 Theme-based classes
+    const bgColor = theme === 'dark' ? 'bg-black' : 'bg-white';
+    const textMain = theme === 'dark' ? 'text-white' : 'text-gray-900';
+    const cardBg = theme === 'dark' ? 'bg-gray-900' : 'bg-gray-100';
+    const borderColor = theme === 'dark' ? 'border-purple-600 hover:border-purple-400 hover:shadow-purple-800' : 'border-purple-500 hover:border-purple-700 hover:shadow-purple-500';
+    const emptyText = theme === 'dark' ? 'text-purple-300' : 'text-purple-700';
+
     return (
-        <div className="bg-gray-800 min-h-screen poppins-font">
+        <div className={`${bgColor} min-h-screen poppins-font transition-colors duration-300`}>
             <Header />
             <div className="max-w-5xl mx-auto px-4 py-12">
-                <h2 className="text-4xl font-bold text-white text-center mb-10">
+                <h2 className={`text-4xl font-bold text-center mb-10 ${textMain}`}>
                     My Posted Tasks
                 </h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 justify-items-center">
                     {myTasks.length > 0 ? myTasks.map(task => (
                         <div
                             key={task._id}
-                            className="bg-black w-full max-w-md p-6 rounded-2xl shadow-lg border-2 border-purple-600 hover:border-purple-300 hover:shadow-purple-800 transition"
+                            className={`${cardBg} w-full max-w-md p-6 rounded-2xl shadow-lg border-2 transition ${borderColor}`}
                         >
-                            <h3 className="text-2xl font-bold text-white mb-4">
+                            <h3 className={`text-2xl font-bold mb-4 ${textMain}`}>
                                 {task.title}
                             </h3>
-                            <p className="text-white mb-6 line-clamp-3">
+                            <p className={`${textMain} mb-6 line-clamp-3`}>
                                 {task.description}
                             </p>
-                            <div className="space-y-2 text-purple-200 mb-4">
+                            <div className={`space-y-2 mb-4 ${theme === 'dark' ? 'text-purple-200' : 'text-purple-800'}`}>
                                 <p><span className="font-semibold">Category:</span> {task.category}</p>
                                 <p><span className="font-semibold">Budget:</span> ${task.budget}</p>
                                 <p><span className="font-semibold">Deadline:</span> {task.deadline}</p>
@@ -91,7 +100,7 @@ const MyTasks = () => {
                             </div>
                         </div>
                     )) : (
-                        <p className="text-center text-purple-300 text-lg col-span-full">
+                        <p className={`text-center text-lg col-span-full ${emptyText}`}>
                             You have not posted any tasks yet.
                         </p>
                     )}
