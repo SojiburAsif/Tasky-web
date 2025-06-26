@@ -18,11 +18,17 @@ const Fooder = () => {
         <footer className={`roboto-font transition-colors duration-500 ${theme === 'dark' ? 'bg-black text-white' : 'bg-gray-100 text-black'}`}>
             <div className="mx-auto max-w-5xl px-4 py-16 sm:px-6 lg:px-8">
                 <div className="flex justify-center text-teal-600 dark:text-teal-300">
-                    <img
-                        className="w-28"
-                        src="/ChatGPT Image May 20, 2025, 05_52_48 PM.png"
-                        alt="Taskly Logo"
-                    />
+                    <Link to="/">
+                        <img
+                            src={
+                                theme === 'dark'
+                                    ? '/ChatGPT Image May 20, 2025, 05_52_48 PM.png'
+                                    : 'https://i.ibb.co/qLr0Nspj/ffee6d8c-7850-4475-972a-f68b63aa4eed.png'
+                            }
+                            alt="Taskly Logo"
+                            className="h-12 w-auto transition duration-300"
+                        />
+                    </Link>
                 </div>
 
                 <p className="mx-auto mt-6 max-w-xl text-center leading-relaxed text-gray-500 dark:text-gray-400">

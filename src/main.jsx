@@ -18,7 +18,7 @@ createRoot(document.getElementById('root')).render(
     <Toaster />
     <ThemeProvider>
       <AuthProvider>
-        <div className='font-rancho'>
+        <div className='roboto-font'>
              <RouterProvider router={router} />
         </div>
      

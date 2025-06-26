@@ -1,17 +1,20 @@
 import { createBrowserRouter } from "react-router";
 
 import Error from "../Error/Error";
-import MainLayout from "../MainLawout/MainLawout"; 
+import MainLayout from "../MainLawout/MainLawout";
 import Login from "../Form/Login";
-import Register from "../Form/Regester"; 
+import Register from "../Form/Regester";
 import AddTask from "../Tasks/AddTask";
 
-import TaskCard from "../Tasks/Taske";   
-import Details from "../Tasks/Deatils";  
+import TaskCard from "../Tasks/Taske";
+import Details from "../Tasks/Deatils";
 import UpdateUser from "../Tasks/UpdateUser";
 import MyTasks from "../Tasks/MyTasks";
 import SectionPage from "../Home/SectionPage";
 import PrivateRouter from "../Contexts/PrivateRouter";
+import Dashboard from "../Dashboard/Dashboard";
+import AllPage from "../Dashboard/All-Page";
+
 
 
 export const router = createBrowserRouter([
@@ -19,7 +22,7 @@ export const router = createBrowserRouter([
     path: "/",
     Component: MainLayout,
 
-  
+
   },
   {
     path: "/login",
@@ -61,12 +64,26 @@ export const router = createBrowserRouter([
     element: <PrivateRouter>
       <MyTasks></MyTasks>
     </PrivateRouter>,
-     loader: () =>
+    loader: () =>
       fetch(`https://backend-zeta-ochre-92.vercel.app/working`),
   },
+  {
+    path: '/dashboard',
+    element: <PrivateRouter>
+      <Dashboard></Dashboard>
+    </PrivateRouter>,
+    loader: () =>
+      fetch(`https://backend-zeta-ochre-92.vercel.app/working`),
+
+  },
+  {
+    path: 'all-page',
+    element: <AllPage></AllPage>
+  }
+  ,
   {
     path: "*",
     element: <Error />,
   },
-  
+
 ]);

@@ -53,7 +53,7 @@ const Servis = () => {
     };
 
     return (
-        <div className={`poppins-font px-6 py-12 ${theme === 'dark' ? 'bg-black text-white' : 'bg-white text-gray-900'}`}>
+        <div className={`poppins-font py-9 px-6  ${theme === 'dark' ? 'bg-black text-white' : 'bg-white text-gray-900'}`}>
             <div className="max-w-7xl mx-auto">
             
                 <Marquee gradient={false} speed={50} className="mb-8">

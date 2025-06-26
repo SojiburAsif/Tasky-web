@@ -1,8 +1,8 @@
 import React, { useContext, useState } from 'react';
-import { useLoaderData, Link } from 'react-router'; 
+import { useLoaderData, Link } from 'react-router';
 import { AuthContext } from '../Contexts/AuthContext';
 import Header from '../Header/Header';
-import { FaTrash, FaEdit } from 'react-icons/fa';
+import { FaTrash, FaEdit, FaDollarSign } from 'react-icons/fa';
 import Swal from 'sweetalert2';
 import { ThemeContext } from '../Header/ThemsProvider';
 
@@ -50,57 +50,56 @@ const MyTasks = () => {
         });
     };
 
-    // 🔧 Theme-based classes
-    const bgColor = theme === 'dark' ? 'bg-black' : 'bg-white';
-    const textMain = theme === 'dark' ? 'text-white' : 'text-gray-900';
-    const cardBg = theme === 'dark' ? 'bg-gray-900' : 'bg-gray-100';
-    const borderColor = theme === 'dark' ? 'border-purple-600 hover:border-purple-400 hover:shadow-purple-800' : 'border-purple-500 hover:border-purple-700 hover:shadow-purple-500';
-    const emptyText = theme === 'dark' ? 'text-purple-300' : 'text-purple-700';
+    const cardText = theme === 'dark' ? 'text-white' : 'text-black';
+    const badgeColor = theme === 'dark' ? 'border-purple-400 text-purple-400' : 'border-purple-600 text-purple-600';
 
     return (
-        <div className={`${bgColor} min-h-screen poppins-font transition-colors duration-300`}>
+        <div className={`${theme === 'dark' ? 'bg-black' : 'bg-white'} min-h-screen poppins-font`}>
             <Header />
-            <div className="max-w-5xl mx-auto px-4 py-12">
-                <h2 className={`text-4xl font-bold text-center mb-10 ${textMain}`}>
+            <div className="max-w-6xl mx-auto px-4 py-12">
+                <h2 className={`text-4xl font-bold text-center mb-10 ${theme === 'dark' ? 'text-white' : 'text-gray-900'}`}>
                     My Posted Tasks
                 </h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 justify-items-center">
+
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {myTasks.length > 0 ? myTasks.map(task => (
-                        <div
-                            key={task._id}
-                            className={`${cardBg} w-full max-w-md p-6 rounded-2xl shadow-lg border-2 transition ${borderColor}`}
-                        >
-                            <h3 className={`text-2xl font-bold mb-4 ${textMain}`}>
-                                {task.title}
-                            </h3>
-                            <p className={`${textMain} mb-6 line-clamp-3`}>
-                                {task.description}
-                            </p>
-                            <div className={`space-y-2 mb-4 ${theme === 'dark' ? 'text-purple-200' : 'text-purple-800'}`}>
-                                <p><span className="font-semibold">Category:</span> {task.category}</p>
-                                <p><span className="font-semibold">Budget:</span> ${task.budget}</p>
-                                <p><span className="font-semibold">Deadline:</span> {task.deadline}</p>
-                            </div>
-                            <div className="flex gap-4 mt-auto">
-                                <Link to={`/update/${task._id}`} className="mt-2 text-purple-400 hover:text-purple-200">
-                                    <FaEdit size={22} />
-                                </Link>
-                                <button
-                                    onClick={() => handleDelete(task._id)}
-                                    className="text-red-500 hover:text-red-300"
-                                >
-                                    <FaTrash size={20} />
-                                </button>
-                                <Link
-                                    to={`/view-deatils/${task._id}`}
-                                    className="ml-auto bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded transition"
-                                >
-                                    View Details
-                                </Link>
+                        <div key={task._id} className="card card-compact shadow-lg border border-purple-200 dark:border-gray-700">
+                            <div className="card-body">
+                                <h2 className="card-title text-purple-700 dark:text-purple-400">{task.title}</h2>
+                                <p className={`text-sm font-semibold ${cardText}`}>{task.category}</p>
+                                <p className={`${cardText} line-clamp-2`}>{task.description}</p>
+
+                                <div className="card-actions justify-between items-center mt-4">
+                                    <span className={`badge badge-outline font-semibold flex items-center gap-1 ${badgeColor}`}>
+                                        <FaDollarSign size={12} />{task.budget}
+                                    </span>
+                                    <span className={`text-xs ${cardText}`}>
+                                        Deadline: {new Date(task.deadline).toLocaleDateString()}
+                                    </span>
+                                </div>
+
+                                <div className={`mt-2 text-xs ${cardText}`}>
+                                    By {task.username}
+                                </div>
+
+                                <div className="flex gap-3 mt-4">
+                                    <Link to={`/update/${task._id}`} className="text-purple-500 hover:text-purple-300">
+                                        <FaEdit size={20} />
+                                    </Link>
+                                    <button onClick={() => handleDelete(task._id)} className="text-red-500 mb-4 hover:text-red-300">
+                                        <FaTrash size={20} />
+                                    </button>
+                                    <Link
+                                        to={`/view-deatils/${task._id}`}
+                                        className="ml-auto bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded transition"
+                                    >
+                                        View Details
+                                    </Link>
+                                </div>
                             </div>
                         </div>
                     )) : (
-                        <p className={`text-center text-lg col-span-full ${emptyText}`}>
+                        <p className={`text-center text-lg col-span-full ${theme === 'dark' ? 'text-purple-300' : 'text-purple-700'}`}>
                             You have not posted any tasks yet.
                         </p>
                     )}
