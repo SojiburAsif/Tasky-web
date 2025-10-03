@@ -8,6 +8,7 @@ import { AuthContext } from '../Contexts/AuthContext';
 import Servis from './Servis';
 import Loading from '../Loding/Loding';
 import { ThemeContext } from '../Header/ThemsProvider';
+import Section from './Section';
 
 const Home = () => {
     const { user, loading } = useContext(AuthContext);
@@ -24,8 +25,11 @@ const Home = () => {
             <Outlet />
 
             {user && <HomeTasks />}
+
             <Servis />
+            <Section></Section>
             <Latest />
+
         </div>
     );
 };
