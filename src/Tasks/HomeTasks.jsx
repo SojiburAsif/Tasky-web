@@ -68,7 +68,7 @@ const HomeTasks = () => {
     return <Loading />;
   }
 
-  // Text colors: dark mode = white, light mode = black/dark gray
+
   const bgColor = theme === 'dark' ? 'bg-black' : 'bg-white';
   const sectionBg = theme === 'dark' ? 'bg-gray-900' : 'bg-gray-100';
   const textPrimary = theme === 'dark' ? 'text-white' : 'text-gray-900';

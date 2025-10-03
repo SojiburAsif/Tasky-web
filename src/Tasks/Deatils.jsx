@@ -14,7 +14,7 @@ const Details = () => {
     const [success, setSuccess] = useState(false);
 
     const handlePlaceBid = () => {
-        // Don't show message on initial state
+     
         setLoading(true);
         const newCount = bidCount + 1;
 
