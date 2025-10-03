@@ -47,7 +47,7 @@ const AddTask = () => {
         : 'bg-purple-100 hover:bg-purple-600 hover:text-white text-purple-800';
 
     return (
-        <section className={`${bgColor} min-h-screen transition-colors duration-500`}>
+        <section className={`${bgColor} min-h-screen transition-colors duration-500 mt-18`}>
             <Header />
             <div className="flex justify-center poppins-font items-start mt-8 px-4">
                 <form

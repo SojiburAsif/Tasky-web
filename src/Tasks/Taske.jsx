@@ -67,7 +67,7 @@ const FeaturedTasks = () => {
   if (loading) return <Loading />;
 
   return (
-    <div className={`${bgColor} min-h-screen transition-colors duration-300`}>
+    <div className={`${bgColor} min-h-screen transition-colors duration-300 mt-18 py-13`}>
       <section className={`w-full px-8 mx-auto max-w-7xl py-12 ${sectionBg} rounded-xl`}>
         <h2 className={`text-3xl text-center font-bold mb-8 ${titleColor}`}>
           Featured Tasks

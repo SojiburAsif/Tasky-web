@@ -56,7 +56,7 @@ const MyTasks = () => {
     return (
         <div className={`${theme === 'dark' ? 'bg-black' : 'bg-white'} min-h-screen poppins-font`}>
             <Header />
-            <div className="max-w-6xl mx-auto px-4 py-12">
+            <div className="max-w-6xl mx-auto px-4 mt-12 py-12">
                 <h2 className={`text-4xl font-bold text-center mb-10 ${theme === 'dark' ? 'text-white' : 'text-gray-900'}`}>
                     My Posted Tasks
                 </h2>

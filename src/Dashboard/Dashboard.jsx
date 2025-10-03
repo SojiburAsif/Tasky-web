@@ -99,9 +99,6 @@ const Dashboard = () => {
               </p>
             </div>
           </div>
-
-        
-
           {/* Total Bids */}
           <div className={`${baseBg} card shadow transition hover:bg-purple-500 hover:text-white hover:shadow-[0_8px_16px_rgba(128,0,128,0.4)] cursor-pointer rounded-xl`}>
             <div className="card-body items-center text-center">
@@ -113,8 +110,6 @@ const Dashboard = () => {
               <p className="text-5xl font-extrabold">{totalBids}</p>
             </div>
           </div>
-
-          {/* Total Users from API */}
           <div className={`${baseBg} card shadow transition hover:bg-purple-500 hover:text-white hover:shadow-[0_8px_16px_rgba(128,0,128,0.4)] cursor-pointer rounded-xl col-span-full sm:col-span-2 lg:col-span-1`}>
             <div className="card-body items-center text-center">
               <h2 className="card-title flex items-center space-x-2">

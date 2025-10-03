@@ -10,8 +10,8 @@ const AllPage = () => {
     const [error, setError] = useState(null);
     const { theme } = useContext(ThemeContext);
 
-    const [deadlineOrder, setDeadlineOrder] = useState('asc'); // asc or desc
-    const [budgetOrder, setBudgetOrder] = useState('asc');     // asc or desc
+    const [deadlineOrder, setDeadlineOrder] = useState('asc'); 
+    const [budgetOrder, setBudgetOrder] = useState('asc');    
     const [filterCategory, setFilterCategory] = useState('All');
 
     useEffect(() => {
