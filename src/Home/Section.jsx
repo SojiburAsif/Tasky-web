@@ -125,13 +125,13 @@ const Section = () => {
     return (
         <section className={`poppins-font py-12 ${theme === "dark" ? "bg-black text-white" : "bg-gray-50 text-black"}`}>
             <div className="max-w-[1380px] mx-auto space-y-10">
-                {/* Header */}
+               
                 <div className="px-6 md:px-2 text-center mb-8">
                     <h2 className="text-3xl md:text-4xl font-semibold">Featured Opportunities</h2>
                     <p className={theme === "dark" ? "text-gray-400" : "text-gray-600"}>Browse the latest projects and open roles — click View Details for full info.</p>
                 </div>
 
-                {/* Cards grid */}
+            
                 <div className="px-4 md:px-8 lg:px-12">
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                         {items.map((it) => (

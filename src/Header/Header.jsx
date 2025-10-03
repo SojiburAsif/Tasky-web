@@ -64,7 +64,7 @@ const Header = () => {
           </Link>
         </div>
 
-        {/* Center: Desktop nav */}
+      
         <ul className="hidden lg:flex items-center gap-6 font-medium">
           <li><Link to="/" className={isActive("/")}>Home</Link></li>
           <li><Link to="/all-page" className={isActive("/all-page")}>All Items</Link></li>
