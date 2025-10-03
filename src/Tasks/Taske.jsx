@@ -106,7 +106,7 @@ const FeaturedTasks = () => {
                 <div className={`mt-2 text-xs ${textColor}`}>
                   By {task.username}
                 </div>
-
+ 
                 <Link to={`/view-deatils/${task._id}`}>
                   <button className={`mt-4 btn ${buttonColor} w-full`}>View Details</button>
                 </Link>
