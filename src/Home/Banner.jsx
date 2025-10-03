@@ -19,7 +19,7 @@ const Banner = () => {
 
   return (
     <section
-      className={`poppins-font transition-colors duration-500 ${
+      className={`md:mt-18 poppins-font transition-colors duration-500 ${
         theme === 'dark' ? 'bg-gray-900 text-white' : 'bg-white text-gray-900'
       }`}
     >
