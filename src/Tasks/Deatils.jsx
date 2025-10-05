@@ -4,7 +4,7 @@ import { useLoaderData, Link } from 'react-router';
 import { Tooltip } from 'react-tooltip';
 import 'react-tooltip/dist/react-tooltip.css';
 import { FaArrowLeft } from "react-icons/fa";
-// hiiii
+
 const Details = () => {
     const data = useLoaderData();
     const { _id, title, category, description, budget, deadline } = data;
